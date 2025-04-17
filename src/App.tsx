@@ -19,9 +19,9 @@ export const App = () => {
 
   return (
       <div className="app">
-        <TodolistItem title="What to learn" tasks={tasks} />
-        <TodolistItem title="What to learn" tasks={tasks} />
-        <TodolistItem title="What to learn" tasks={tasks} />
+        <TodolistItem title="What to learn" tasks={tasks} truck2={100299}/>
+        <TodolistItem title="What to learn 2" tasks={tasks} truck2={100299}/>
+        <TodolistItem title="What to learn 3" tasks={tasks} truck2={100299}/>
       </div>
   )
 }
