@@ -20,6 +20,8 @@ export const App = () => {
   return (
       <div className="app">
         <TodolistItem title="What to learn" tasks={tasks} />
+        <TodolistItem title="What to learn" tasks={tasks} />
+        <TodolistItem title="What to learn" tasks={tasks} />
       </div>
   )
 }
