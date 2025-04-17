@@ -4,14 +4,14 @@ import {Button} from './Button'
 type Props = {
   title: string
   tasks: Task[]
-    truck2: number
+    truck2: string
 }
 
 export const TodolistItem = ({title, tasks, truck2}: Props) => {
     return (
       <div>
         <h3>{title}</h3>
-          {<div>{truck2}</div>}
+          {<p>{truck2}</p>}
           <div>
           <input/>
           <Button title={'+'} />
