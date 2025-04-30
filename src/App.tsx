@@ -1,5 +1,5 @@
 import './App.css'
-import {TodolistItem} from './TodolistItem'
+import {TodolistItem} from './components/TodolistItem'
 
 export const App = () => {
   const tasksToday = [
