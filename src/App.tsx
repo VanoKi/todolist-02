@@ -2,29 +2,35 @@ import './App.css'
 import {TodolistItem} from './TodolistItem'
 
 export const App = () => {
-  const tasks = [
-    { id: 1, title: "Сделать зарядку", isDone: true },
-    { id: 2, title: "Почитать 20 страниц книги", isDone: false },
-    { id: 3, title: "Посмотреть учебное видео по React", isDone: false },
+  const tasksToday = [
+    { id: 1, title: "Do morning exercise", isDone: true },
+    { id: 2, title: "Read 20 pages of a book", isDone: false },
+    { id: 3, title: "Watch a React tutorial", isDone: false },
+    { id: 4, title: "Prepare lunch", isDone: true },
+    { id: 5, title: "Write in diary", isDone: false },
   ]
 
-  const tasks2 = [
-    { id: 4, title: "Ответить на письма", isDone: true },
-    { id: 5, title: "Завершить задачу по верстке", isDone: false },
-    { id: 6, title: "Созвон с командой в 15:00", isDone: false },
+  const tasksWork = [
+    { id: 6, title: "Check and reply to emails", isDone: true },
+    { id: 7, title: "Finish layout task", isDone: false },
+    { id: 8, title: "Team call at 3 PM", isDone: false },
+    { id: 9, title: "Fix bugs from yesterday", isDone: true },
+    { id: 10, title: "Review pull requests", isDone: false },
   ]
 
-  const tasks3 = [
-    { id: 7, title: "Сходить в парк", isDone: false },
-    { id: 8, title: "Посмотреть фильм", isDone: false },
-    { id: 9, title: "Позвонить родителям", isDone: true },
+  const tasksWeekend = [
+    { id: 11, title: "Go for a walk in the park", isDone: false },
+    { id: 12, title: "Watch a movie", isDone: true },
+    { id: 13, title: "Call parents", isDone: true },
+    { id: 14, title: "Clean the kitchen", isDone: false },
+    { id: 15, title: "Play a board game", isDone: false },
   ]
 
   return (
     <div className="app">
-      <TodolistItem title="What to learn" tasks={tasks} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 2" tasks={tasks2} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 3" tasks={tasks3} truck2={crypto.randomUUID()}/>
+      <TodolistItem title="What to learn" tasks={tasksToday} truck2={crypto.randomUUID()}/>
+      <TodolistItem title="What to learn 2" tasks={tasksWork} truck2={crypto.randomUUID()}/>
+      <TodolistItem title="What to learn 3" tasks={tasksWeekend} truck2={crypto.randomUUID()}/>
     </div>
   )
 }
