@@ -1,5 +1,5 @@
 import './App.css'
-import {TodolistItem} from './TodolistItem'
+import {TodolistItem as TD} from './TodolistItem'
 
 export type Task = {
   id: number
@@ -19,9 +19,10 @@ export const App = () => {
 
   return (
     <div className="app">
-      <TodolistItem title="What to learn" tasks={tasks} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 2" tasks={tasks} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 3" tasks={tasks} truck2={crypto.randomUUID()}/>
+      {/*<TodolistItem title="What to learn" tasks={tasks} truck2={crypto.randomUUID()}/>*/}
+      {/*<TodolistItem title="What to learn 2" tasks={tasks} truck2={crypto.randomUUID()}/>*/}
+      {/*<TodolistItem title="What to learn 3" tasks={tasks} truck2={crypto.randomUUID()}/>*/}
+      <TD title={'What'} tasks={tasks} truck2={crypto.randomUUID()}/>
     </div>
   )
 }
