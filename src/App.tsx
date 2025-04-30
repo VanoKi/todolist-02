@@ -9,7 +9,6 @@ export const App = () => {
     { id: 4, title: "Prepare lunch", isDone: true },
     { id: 5, title: "Write in diary", isDone: false },
   ]
-
   const tasksWork = [
     { id: 6, title: "Check and reply to emails", isDone: true },
     { id: 7, title: "Finish layout task", isDone: false },
@@ -17,7 +16,6 @@ export const App = () => {
     { id: 9, title: "Fix bugs from yesterday", isDone: true },
     { id: 10, title: "Review pull requests", isDone: false },
   ]
-
   const tasksWeekend = [
     { id: 11, title: "Go for a walk in the park", isDone: false },
     { id: 12, title: "Watch a movie", isDone: true },

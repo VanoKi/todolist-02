@@ -5,7 +5,6 @@ type Props = {
   tasks: TaskProps[]
   truck2?: string
 }
-
 type TaskProps = {
   id: number
   title: string
@@ -13,6 +12,15 @@ type TaskProps = {
 }
 
 export const TodolistItem = ({title, tasks, truck2}: Props) => {
+  const mappedTasks = tasks.map(task => {
+      return (
+        <li key={task.id}>
+          <input type="checkbox" checked={task.isDone}/>
+          <span>{task.title}</span>
+        </li>
+      )
+    })
+
   return (
     <div>
       <h3>{title}</h3>
@@ -25,14 +33,7 @@ export const TodolistItem = ({title, tasks, truck2}: Props) => {
         <p>Тасок нет</p>
       ) : (
         <ul>
-          {tasks.map(task => {
-            return (
-              <li key={task.id}>
-                <input type="checkbox" checked={task.isDone}/>
-                <span>{task.title}</span>
-              </li>
-            )
-          })}
+          {mappedTasks}
         </ul>
       )}
       <div>
