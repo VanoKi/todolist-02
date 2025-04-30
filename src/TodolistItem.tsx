@@ -1,10 +1,15 @@
-import type {Task} from './App'
 import {Button} from './Button'
 
 type Props = {
   title: string
-  tasks: Task[]
-  truck2: string
+  tasks: TaskProps[]
+  truck2?: string
+}
+
+type TaskProps = {
+  id: number
+  title: string
+  isDone: boolean
 }
 
 export const TodolistItem = ({title, tasks, truck2}: Props) => {
