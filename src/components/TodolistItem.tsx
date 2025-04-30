@@ -1,5 +1,5 @@
 import {Button} from './Button'
-import {Task} from "../Task.tsx";
+import {Task} from "./Task.tsx";
 
 type Props = {
   title: string
@@ -15,7 +15,11 @@ type TaskProps = {
 export const TodolistItem = ({title, tasks, truck2}: Props) => {
   const mappedTasks = tasks.map(task => {
       return (
-        <Task title={task.title} isDone={task.isDone}/>
+        <Task
+            key={task.id}
+            title={task.title}
+            isDone={task.isDone}
+        />
       )
     })
 
