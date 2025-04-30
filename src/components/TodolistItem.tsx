@@ -1,4 +1,5 @@
 import {Button} from './Button'
+import {Task} from "../Task.tsx";
 
 type Props = {
   title: string
@@ -14,10 +15,7 @@ type TaskProps = {
 export const TodolistItem = ({title, tasks, truck2}: Props) => {
   const mappedTasks = tasks.map(task => {
       return (
-        <li key={task.id}>
-          <input type="checkbox" checked={task.isDone}/>
-          <span>{task.title}</span>
-        </li>
+        <Task title={task.title} isDone={task.isDone}/>
       )
     })
 
