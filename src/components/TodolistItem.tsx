@@ -1,6 +1,5 @@
 import {Button} from './Button'
 import {Task} from "../Task.tsx";
-import {FilterValueType} from "../App.tsx";
 import {useState} from "react";
 
 type Props = {
@@ -16,6 +15,8 @@ type TaskProps = {
   isDone: boolean
 }
 
+type FilterValueType = 'All' | 'Active' | 'Completed'
+
 export const TodolistItem = ({
                                title,
                                tasks,
@@ -27,15 +28,17 @@ export const TodolistItem = ({
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
-
-  let filtredTasks = tasks
-  if (val === 'Completed') {
-    filtredTasks = tasks.filter( task => task.isDone)
-  } else if (val === 'Active') {
-    filtredTasks =  tasks.filter(task => !task.isDone)
+  const filter = () => {
+    let filtredTasks = tasks
+    if (val === 'Completed') {
+      filtredTasks = tasks.filter( task => task.isDone)
+    } else if (val === 'Active') {
+      filtredTasks =  tasks.filter(task => !task.isDone)
+    }
+    return filtredTasks
   }
 
-  const mappedTasks = filtredTasks.map(task => {
+  const mappedTasks = filter().map(task => {
     return (
       <Task title={task.title} isDone={task.isDone} removeTask={() => removeTask(task.id)}/>
     )

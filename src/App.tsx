@@ -2,8 +2,6 @@ import './App.css'
 import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 
-export type FilterValueType = 'All' | 'Active' | 'Completed'
-
 export const App = () => {
   let [tasks, setTasks] = useState(
     [
