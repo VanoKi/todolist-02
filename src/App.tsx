@@ -33,27 +33,26 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
   }
 
+  const [val, setVal] = useState('All')
   const changeFilter = (val: FilterValueType) => {
-    if (val === 'Completed') {
-      setTasks(tasks.filter( task => task.isDone))
-    } else if (val === 'Active') {
-      setTasks(tasks.filter(task => !task.isDone))
-    } else {
-      setTasks(tasks)
-    }
+    setVal(val)
+  }
+
+  let filtredTasks = tasks
+  if (val === 'Completed') {
+    filtredTasks = tasks.filter( task => task.isDone)
+  } else if (val === 'Active') {
+    filtredTasks =  tasks.filter(task => !task.isDone)
   }
 
   return (
     <div className="app">
       <TodolistItem
         title="What to learn"
-        tasks={tasks}
-        // truck2={crypto.randomUUID()}
+        tasks={filtredTasks}
         removeTask={removeTask}
         changeFilter={changeFilter}
       />
-      {/*<TodolistItem title="What to learn 2" tasks={tasksWork} truck2={crypto.randomUUID()}/>*/}
-      {/*<TodolistItem title="What to learn 3" tasks={tasksWeekend} truck2={crypto.randomUUID()}/>*/}
     </div>
   )
 }
