@@ -33,25 +33,25 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
   }
 
-  const [val, setVal] = useState('All')
-  const changeFilter = (val: FilterValueType) => {
-    setVal(val)
-  }
-
-  let filtredTasks = tasks
-  if (val === 'Completed') {
-    filtredTasks = tasks.filter( task => task.isDone)
-  } else if (val === 'Active') {
-    filtredTasks =  tasks.filter(task => !task.isDone)
-  }
+  // const [val, setVal] = useState('All')
+  // const changeFilter = (val: FilterValueType) => {
+  //   setVal(val)
+  // }
+  //
+  // let filtredTasks = tasks
+  // if (val === 'Completed') {
+  //   filtredTasks = tasks.filter( task => task.isDone)
+  // } else if (val === 'Active') {
+  //   filtredTasks =  tasks.filter(task => !task.isDone)
+  // }
 
   return (
     <div className="app">
       <TodolistItem
         title="What to learn"
-        tasks={filtredTasks}
+        tasks={tasks}
         removeTask={removeTask}
-        changeFilter={changeFilter}
+        // changeFilter={changeFilter}
       />
     </div>
   )

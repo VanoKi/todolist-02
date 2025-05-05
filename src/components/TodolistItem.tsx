@@ -1,13 +1,14 @@
 import {Button} from './Button'
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
+import {useState} from "react";
 
 type Props = {
   title: string
   tasks: TaskProps[]
   truck2?: string
   removeTask: (taskId: number) => void
-  changeFilter: (val: FilterValueType) => void
+  // changeFilter: (val: FilterValueType) => void
 }
 type TaskProps = {
   id: number
@@ -19,18 +20,30 @@ export const TodolistItem = ({
                                title,
                                tasks,
                                removeTask,
-                               changeFilter
+                               // changeFilter
 }: Props) => {
-  const mappedTasks = tasks.map(task => {
-      return (
-        <Task title={task.title} isDone={task.isDone} removeTask={() => removeTask(task.id)}/>
-      )
-    })
+
+  const [val, setVal] = useState('All')
+  const changeFilter = (val: FilterValueType) => {
+    setVal(val)
+  }
+
+  let filtredTasks = tasks
+  if (val === 'Completed') {
+    filtredTasks = tasks.filter( task => task.isDone)
+  } else if (val === 'Active') {
+    filtredTasks =  tasks.filter(task => !task.isDone)
+  }
+
+  const mappedTasks = filtredTasks.map(task => {
+    return (
+      <Task title={task.title} isDone={task.isDone} removeTask={() => removeTask(task.id)}/>
+    )
+  })
 
   return (
     <div>
       <h3>{title}</h3>
-      {/*{<p>{truck2}</p>}*/}
       <div>
         <input/>
         <Button title={'+'}/>
