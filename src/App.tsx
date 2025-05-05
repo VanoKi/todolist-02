@@ -24,8 +24,8 @@ export const App = () => {
   //   { id: 15, title: "Play a board game", isDone: false },
   // ]
 
-  const removeTask = () => {
-    console.log('click')
+  const removeTask = (taskId: number) => {
+    console.log(taskId)
   }
 
   return (
