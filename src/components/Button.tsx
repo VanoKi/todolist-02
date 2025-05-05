@@ -1,7 +1,8 @@
 type Props = {
   title: string
+  callBack?: () => void
 }
 
-export const Button = ({ title }: Props) => {
-  return <button>{title}</button>
+export const Button = ({ title, callBack }: Props) => {
+  return <button onClick={callBack}>{title}</button>
 }

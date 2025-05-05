@@ -5,6 +5,7 @@ type Props = {
   title: string
   tasks: TaskProps[]
   truck2?: string
+  removeTask: () => void
 }
 type TaskProps = {
   id: number
@@ -12,10 +13,10 @@ type TaskProps = {
   isDone: boolean
 }
 
-export const TodolistItem = ({title, tasks, truck2}: Props) => {
+export const TodolistItem = ({title, tasks, truck2, removeTask}: Props) => {
   const mappedTasks = tasks.map(task => {
       return (
-        <Task title={task.title} isDone={task.isDone}/>
+        <Task title={task.title} isDone={task.isDone} removeTask={removeTask}/>
       )
     })
 
