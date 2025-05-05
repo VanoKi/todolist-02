@@ -18,7 +18,6 @@ type TaskProps = {
 export const TodolistItem = ({
                                title,
                                tasks,
-                               truck2,
                                removeTask,
                                changeFilter
 }: Props) => {
