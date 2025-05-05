@@ -2,6 +2,8 @@ import './App.css'
 import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 
+export type FilterValueType = 'All' | 'Active' | 'Completed'
+
 export const App = () => {
   let [tasks, setTasks] = useState(
     [
@@ -31,18 +33,22 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
   }
 
-  const changeFilter = () => {
-    console.log('ggg')
+  const changeFilter = (val: FilterValueType) => {
+    if (val === 'Completed') {
+      setTasks(tasks.filter( task => task.isDone))
+    } else if (val === 'Active') {
+      setTasks(tasks.filter(task => !task.isDone))
+    } else {
+      setTasks(tasks)
+    }
   }
-
-
 
   return (
     <div className="app">
       <TodolistItem
         title="What to learn"
         tasks={tasks}
-        truck2={crypto.randomUUID()}
+        // truck2={crypto.randomUUID()}
         removeTask={removeTask}
         changeFilter={changeFilter}
       />

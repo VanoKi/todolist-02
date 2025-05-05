@@ -1,12 +1,13 @@
 import {Button} from './Button'
 import {Task} from "../Task.tsx";
+import {FilterValueType} from "../App.tsx";
 
 type Props = {
   title: string
   tasks: TaskProps[]
   truck2?: string
   removeTask: (taskId: number) => void
-  changeFilter: () => void
+  changeFilter: (val: FilterValueType) => void
 }
 type TaskProps = {
   id: number
@@ -30,7 +31,7 @@ export const TodolistItem = ({
   return (
     <div>
       <h3>{title}</h3>
-      {<p>{truck2}</p>}
+      {/*{<p>{truck2}</p>}*/}
       <div>
         <input/>
         <Button title={'+'}/>
@@ -46,9 +47,9 @@ export const TodolistItem = ({
         {/*<Button title={'All'}/>*/}
         {/*<Button title={'Active'}/>*/}
         {/*<Button title={'Completed'}/>*/}
-        <button onClick={() =>changeFilter()}>All</button>
-        <button onClick={() =>changeFilter()}>Active</button>
-        <button onClick={() =>changeFilter()}>Completed</button>
+        <button onClick={() =>changeFilter('All')}>All</button>
+        <button onClick={() =>changeFilter('Active')}>Active</button>
+        <button onClick={() =>changeFilter('Completed')}>Completed</button>
       </div>
     </div>
   )
