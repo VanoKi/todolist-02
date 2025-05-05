@@ -1,14 +1,17 @@
 import './App.css'
 import {TodolistItem} from './components/TodolistItem'
+import {useState} from "react";
 
 export const App = () => {
-  const tasksToday = [
-    { id: 1, title: "Do morning exercise", isDone: true },
-    { id: 2, title: "Read 20 pages of a book", isDone: false },
-    { id: 3, title: "Watch a React tutorial", isDone: false },
-    { id: 4, title: "Prepare lunch", isDone: true },
-    { id: 5, title: "Write in diary", isDone: false },
-  ]
+  let [tasks, setTasks] = useState(
+    [
+      { id: 1, title: "Do morning exercise", isDone: true },
+      { id: 2, title: "Read 20 pages of a book", isDone: false },
+      { id: 3, title: "Watch a React tutorial", isDone: false },
+      { id: 4, title: "Prepare lunch", isDone: true },
+      { id: 5, title: "Write in diary", isDone: false },
+    ]
+  )
   // const tasksWork = [
   //   { id: 6, title: "Check and reply to emails", isDone: true },
   //   { id: 7, title: "Finish layout task", isDone: false },
@@ -25,14 +28,16 @@ export const App = () => {
   // ]
 
   const removeTask = (taskId: number) => {
-    console.log(taskId)
+    // console.log(taskId)
+    tasks = tasks.filter(task => task.id !== taskId)
+    setTasks(tasks)
   }
 
   return (
     <div className="app">
       <TodolistItem
         title="What to learn"
-        tasks={tasksToday}
+        tasks={tasks}
         truck2={crypto.randomUUID()}
         removeTask={removeTask}
       />
