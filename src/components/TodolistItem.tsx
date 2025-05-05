@@ -6,6 +6,7 @@ type Props = {
   tasks: TaskProps[]
   truck2?: string
   removeTask: (taskId: number) => void
+  changeFilter: () => void
 }
 type TaskProps = {
   id: number
@@ -13,7 +14,13 @@ type TaskProps = {
   isDone: boolean
 }
 
-export const TodolistItem = ({title, tasks, truck2, removeTask}: Props) => {
+export const TodolistItem = ({
+                               title,
+                               tasks,
+                               truck2,
+                               removeTask,
+                               changeFilter
+}: Props) => {
   const mappedTasks = tasks.map(task => {
       return (
         <Task title={task.title} isDone={task.isDone} removeTask={() => removeTask(task.id)}/>
@@ -36,9 +43,12 @@ export const TodolistItem = ({title, tasks, truck2, removeTask}: Props) => {
         </ul>
       )}
       <div>
-        <Button title={'All'}/>
-        <Button title={'Active'}/>
-        <Button title={'Completed'}/>
+        {/*<Button title={'All'}/>*/}
+        {/*<Button title={'Active'}/>*/}
+        {/*<Button title={'Completed'}/>*/}
+        <button onClick={() =>changeFilter()}>All</button>
+        <button onClick={() =>changeFilter()}>Active</button>
+        <button onClick={() =>changeFilter()}>Completed</button>
       </div>
     </div>
   )

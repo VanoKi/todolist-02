@@ -31,6 +31,12 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
   }
 
+  const changeFilter = () => {
+    console.log('ggg')
+  }
+
+
+
   return (
     <div className="app">
       <TodolistItem
@@ -38,6 +44,7 @@ export const App = () => {
         tasks={tasks}
         truck2={crypto.randomUUID()}
         removeTask={removeTask}
+        changeFilter={changeFilter}
       />
       {/*<TodolistItem title="What to learn 2" tasks={tasksWork} truck2={crypto.randomUUID()}/>*/}
       {/*<TodolistItem title="What to learn 3" tasks={tasksWeekend} truck2={crypto.randomUUID()}/>*/}
