@@ -27,8 +27,8 @@ export const App = () => {
   return (
     <div className="app">
       <TodolistItem title="What to learn" tasks={tasksToday} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 2" tasks={tasksWork} truck2={crypto.randomUUID()}/>
-      <TodolistItem title="What to learn 3" tasks={tasksWeekend} truck2={crypto.randomUUID()}/>
+      {/*<TodolistItem title="What to learn 2" tasks={tasksWork} truck2={crypto.randomUUID()}/>*/}
+      {/*<TodolistItem title="What to learn 3" tasks={tasksWeekend} truck2={crypto.randomUUID()}/>*/}
     </div>
   )
 }
