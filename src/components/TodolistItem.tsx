@@ -28,19 +28,35 @@ export const TodolistItem = ({
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
+  // const filter = () => {
+  //   let filtredTasks = tasks
+  //   if (val === 'Completed') {
+  //     filtredTasks = tasks.filter( task => task.isDone)
+  //   } else if (val === 'Active') {
+  //     filtredTasks =  tasks.filter(task => !task.isDone)
+  //   }
+  //   return filtredTasks
+  // }
+
   const filter = () => {
-    let filtredTasks = tasks
-    if (val === 'Completed') {
-      filtredTasks = tasks.filter( task => task.isDone)
-    } else if (val === 'Active') {
-      filtredTasks =  tasks.filter(task => !task.isDone)
+    switch (val) {
+      case 'Completed': {
+        return tasks.filter(task => task.isDone)
+      }
+      case 'Active': {
+        return tasks.filter(task => !task.isDone)
+      }
+      default: return tasks
     }
-    return filtredTasks
   }
 
   const mappedTasks = filter().map(task => {
     return (
-      <Task title={task.title} isDone={task.isDone} removeTask={() => removeTask(task.id)}/>
+      <Task
+        key={task.id}
+        title={task.title}
+        isDone={task.isDone}
+        removeTask={() => removeTask(task.id)}/>
     )
   })
 
