@@ -51,6 +51,12 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
     // console.log(taskId)
   }
+  
+  const addTask = () => {
+    const newTask = { id: v1(), title: "new new new", isDone: false }
+    const newArr = [newTask, ...tasks]
+    setTasks(newArr)
+  }
 
   return (
     <div className="app">
@@ -59,6 +65,7 @@ export const App = () => {
         tasks={filter()}
         removeTask={removeTask}
         changeFilter={changeFilter}
+        addTask={addTask}
       />
     </div>
   )

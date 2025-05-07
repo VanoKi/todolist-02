@@ -8,6 +8,7 @@ type Props = {
   truck2?: string
   removeTask: (taskId: string) => void
   changeFilter: (val: FilterValueType) => void
+  addTask: () => void
 }
 type TaskProps = {
   id: string
@@ -20,6 +21,7 @@ export const TodolistItem = ({
                                tasks,
                                removeTask,
                                changeFilter,
+                               addTask
 }: Props) => {
 
   const mappedTasks = tasks.map(task => {
@@ -38,7 +40,8 @@ export const TodolistItem = ({
       <h3>{title}</h3>
       <div>
         <input/>
-        <Button title={'+'}/>
+        {/*<Button title={'+'}/>*/}
+        <button onClick={() => addTask()}>+</button>
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
