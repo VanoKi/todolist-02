@@ -29,8 +29,8 @@ export const App = () => {
   // ]
 
   const removeTask = (taskId: string) => {
-    // setTasks(tasks.filter(task => task.id !== taskId))
-    console.log(taskId)
+    setTasks(tasks.filter(task => task.id !== taskId))
+    // console.log(taskId)
   }
 
   return (

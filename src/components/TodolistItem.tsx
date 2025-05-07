@@ -21,7 +21,6 @@ export const TodolistItem = ({
                                title,
                                tasks,
                                removeTask,
-                               // changeFilter
 }: Props) => {
 
   const [val, setVal] = useState('All')
@@ -53,6 +52,7 @@ export const TodolistItem = ({
   const mappedTasks = filter().map(task => {
     return (
       <Task
+        id={task.id}
         key={task.id}
         title={task.title}
         isDone={task.isDone}
