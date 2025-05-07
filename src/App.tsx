@@ -28,8 +28,9 @@ export const App = () => {
   //   { id: 15, title: "Play a board game", isDone: false },
   // ]
 
-  const removeTask = (taskId: number) => {
-    setTasks(tasks.filter(task => task.id !== taskId))
+  const removeTask = (taskId: string) => {
+    // setTasks(tasks.filter(task => task.id !== taskId))
+    console.log(taskId)
   }
 
   return (

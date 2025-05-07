@@ -6,11 +6,11 @@ type Props = {
   title: string
   tasks: TaskProps[]
   truck2?: string
-  removeTask: (taskId: number) => void
+  removeTask: (taskId: string) => void
   // changeFilter: (val: FilterValueType) => void
 }
 type TaskProps = {
-  id: number
+  id: string
   title: string
   isDone: boolean
 }
