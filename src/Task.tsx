@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const Task = ({id, title, isDone, removeTask}: Props) => {
-  console.log('Current task:', id)
+  // console.log('Current task:', id)
   return (
     <li>
       <input type="checkbox" checked={isDone}/>

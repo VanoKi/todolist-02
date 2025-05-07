@@ -36,6 +36,7 @@ export const TodolistItem = ({
   })
 
   const inputRef = useRef<HTMLInputElement>(null)
+  console.log(inputRef)
 
   return (
     <div>
@@ -43,7 +44,10 @@ export const TodolistItem = ({
       <div>
         <input ref={inputRef}/>
         {/*<Button title={'+'}/>*/}
-        <button onClick={() => addTask()}>+</button>
+        <button onClick={() => {
+          if (inputRef.current){
+          addTask(inputRef.current.value)
+        }}}>+</button>
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>

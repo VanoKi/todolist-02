@@ -34,7 +34,6 @@ export const App = () => {
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
-
   const filter = () => {
     switch (val) {
       case 'Completed': {
@@ -46,14 +45,13 @@ export const App = () => {
       default: return tasks
     }
   }
-
   const removeTask = (taskId: string) => {
     setTasks(tasks.filter(task => task.id !== taskId))
     // console.log(taskId)
   }
-  
-  const addTask = () => {
-    const newTask = { id: v1(), title: "new new new", isDone: false }
+
+  const addTask = (newTitle: string) => {
+    const newTask = { id: v1(), title: newTitle, isDone: false }
     setTasks([newTask, ...tasks])
   }
 
