@@ -1,13 +1,14 @@
 import {Button} from './Button'
 import {Task} from "../Task.tsx";
-import {useState} from "react";
+import {FilterValueType} from "../App.tsx";
 
 type Props = {
   title: string
   tasks: TaskProps[]
   truck2?: string
   removeTask: (taskId: string) => void
-  // changeFilter: (val: FilterValueType) => void
+  filter: (val: FilterValueType) => void
+  changeFilter: (val: FilterValueType) => void
 }
 type TaskProps = {
   id: string
@@ -15,39 +16,13 @@ type TaskProps = {
   isDone: boolean
 }
 
-type FilterValueType = 'All' | 'Active' | 'Completed'
-
 export const TodolistItem = ({
                                title,
                                tasks,
                                removeTask,
+                               changeFilter,
+                               filter
 }: Props) => {
-
-  const [val, setVal] = useState('All')
-  const changeFilter = (val: FilterValueType) => {
-    setVal(val)
-  }
-  // const filter = () => {
-  //   let filtredTasks = tasks
-  //   if (val === 'Completed') {
-  //     filtredTasks = tasks.filter( task => task.isDone)
-  //   } else if (val === 'Active') {
-  //     filtredTasks =  tasks.filter(task => !task.isDone)
-  //   }
-  //   return filtredTasks
-  // }
-
-  const filter = () => {
-    switch (val) {
-      case 'Completed': {
-        return tasks.filter(task => task.isDone)
-      }
-      case 'Active': {
-        return tasks.filter(task => !task.isDone)
-      }
-      default: return tasks
-    }
-  }
 
   const mappedTasks = filter().map(task => {
     return (

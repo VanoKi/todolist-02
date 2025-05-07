@@ -3,6 +3,8 @@ import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
 
+export type FilterValueType = 'All' | 'Active' | 'Completed'
+
 export const App = () => {
   let [tasks, setTasks] = useState(
     [
@@ -28,6 +30,23 @@ export const App = () => {
   //   { id: 15, title: "Play a board game", isDone: false },
   // ]
 
+  const [val, setVal] = useState('All')
+  const changeFilter = (val: FilterValueType) => {
+    setVal(val)
+  }
+
+  const filter = () => {
+    switch (val) {
+      case 'Completed': {
+        return tasks.filter(task => task.isDone)
+      }
+      case 'Active': {
+        return tasks.filter(task => !task.isDone)
+      }
+      default: return tasks
+    }
+  }
+
   const removeTask = (taskId: string) => {
     setTasks(tasks.filter(task => task.id !== taskId))
     // console.log(taskId)
@@ -39,6 +58,8 @@ export const App = () => {
         title="What to learn"
         tasks={tasks}
         removeTask={removeTask}
+        changeFilter={changeFilter}
+        filter={filter}
       />
     </div>
   )
