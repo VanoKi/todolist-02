@@ -1,6 +1,6 @@
-import {Button} from './Button'
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
+import {useRef} from "react";
 
 type Props = {
   title: string
@@ -35,11 +35,13 @@ export const TodolistItem = ({
     )
   })
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
   return (
     <div>
       <h3>{title}</h3>
       <div>
-        <input/>
+        <input ref={inputRef}/>
         {/*<Button title={'+'}/>*/}
         <button onClick={() => addTask()}>+</button>
       </div>
