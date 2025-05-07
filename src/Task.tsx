@@ -7,12 +7,10 @@ type Props = {
   removeTask: () => void
 }
 
-export const Task = ({id, title, isDone, removeTask}: Props) => {
-  // console.log('Current task:', id)
+export const Task = ({title, isDone, removeTask}: Props) => {
   return (
     <li>
       <input type="checkbox" checked={isDone}/>
-      {/*<span>{id}</span>*/}
       <span>{title}</span>
       <Button title={'X'} callBack={removeTask}/>
     </li>
