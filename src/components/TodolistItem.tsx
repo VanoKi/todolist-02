@@ -7,7 +7,6 @@ type Props = {
   tasks: TaskProps[]
   truck2?: string
   removeTask: (taskId: string) => void
-  filter: (val: FilterValueType) => void
   changeFilter: (val: FilterValueType) => void
 }
 type TaskProps = {
@@ -21,10 +20,9 @@ export const TodolistItem = ({
                                tasks,
                                removeTask,
                                changeFilter,
-                               filter
 }: Props) => {
 
-  const mappedTasks = filter().map(task => {
+  const mappedTasks = tasks.map(task => {
     return (
       <Task
         id={task.id}

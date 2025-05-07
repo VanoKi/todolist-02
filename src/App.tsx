@@ -56,10 +56,9 @@ export const App = () => {
     <div className="app">
       <TodolistItem
         title="What to learn"
-        tasks={tasks}
+        tasks={filter()}
         removeTask={removeTask}
         changeFilter={changeFilter}
-        filter={filter}
       />
     </div>
   )
