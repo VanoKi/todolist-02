@@ -47,6 +47,7 @@ export const TodolistItem = ({
         <button onClick={() => {
           if (inputRef.current){
           addTask(inputRef.current.value)
+            inputRef.current.value = null
         }}}>+</button>
       </div>
       {tasks.length === 0 ? (
