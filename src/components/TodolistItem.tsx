@@ -8,7 +8,7 @@ type Props = {
   truck2?: string
   removeTask: (taskId: string) => void
   changeFilter: (val: FilterValueType) => void
-  addTask: () => void
+  addTask: (newTitle: string) => void
 }
 type TaskProps = {
   id: string
@@ -47,7 +47,7 @@ export const TodolistItem = ({
         <button onClick={() => {
           if (inputRef.current){
           addTask(inputRef.current.value)
-            inputRef.current.value = null
+            inputRef.current.value = ''
         }}}>+</button>
       </div>
       {tasks.length === 0 ? (
