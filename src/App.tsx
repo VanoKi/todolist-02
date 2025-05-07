@@ -54,8 +54,7 @@ export const App = () => {
   
   const addTask = () => {
     const newTask = { id: v1(), title: "new new new", isDone: false }
-    const newArr = [newTask, ...tasks]
-    setTasks(newArr)
+    setTasks([newTask, ...tasks])
   }
 
   return (
