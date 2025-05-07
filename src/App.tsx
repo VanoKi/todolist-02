@@ -1,15 +1,16 @@
 import './App.css'
 import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
+import {v1} from "uuid";
 
 export const App = () => {
   let [tasks, setTasks] = useState(
     [
-      { id: 1, title: "Do morning exercise", isDone: true },
-      { id: 2, title: "Read 20 pages of a book", isDone: false },
-      { id: 3, title: "Watch a React tutorial", isDone: false },
-      { id: 4, title: "Prepare lunch", isDone: true },
-      { id: 5, title: "Write in diary", isDone: false },
+      { id: v1(), title: "Do morning exercise", isDone: true },
+      { id: v1(), title: "Read 20 pages of a book", isDone: false },
+      { id: v1(), title: "Watch a React tutorial", isDone: false },
+      { id: v1(), title: "Prepare lunch", isDone: true },
+      { id: v1(), title: "Write in diary", isDone: false },
     ]
   )
   // const tasksWork = [
