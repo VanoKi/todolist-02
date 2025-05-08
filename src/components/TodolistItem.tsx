@@ -1,6 +1,6 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
-import {useRef, useState} from "react";
+import {useRef, useState, KeyboardEvent} from "react";
 
 type Props = {
   title: string
@@ -41,28 +41,28 @@ export const TodolistItem = ({
     changeFilter(val)
   }
 
+  const addTaskHandler = () => {
+      addTask(newTitle)
+      setNewTitle('')
+  }
+
+  const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        addTask(newTitle)
+        setNewTitle('')
+  }
+
   return (
     <div>
       <h3>{title}</h3>
       <div>
         <input
           value={newTitle}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              addTask(newTitle)
-              setNewTitle('')
-          }
-          //   console.log(e.key)
-        }}
+          onKeyDown={oneKeyDawnHandler}
           onChange={(event) => setNewTitle(event.target.value)}
         />
         {/*<Button title={'+'}/>*/}
-        <button
-          onClick={()=>{
-            addTask(newTitle)
-            setNewTitle('')
-          }}
-        >+</button>
+        <button onClick={addTaskHandler}>+</button>
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
