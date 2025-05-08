@@ -1,6 +1,7 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import {useRef, useState, KeyboardEvent, ChangeEvent} from "react";
+import {Button} from "./Button.tsx";
 
 type Props = {
   title: string
@@ -76,12 +77,9 @@ export const TodolistItem = ({
         </ul>
       )}
       <div>
-        {/*<Button title={'All'}/>*/}
-        {/*<Button title={'Active'}/>*/}
-        {/*<Button title={'Completed'}/>*/}
-        <button onClick={() => changeFilterHAndler('All')}>All</button>
-        <button onClick={() => changeFilterHAndler('Active')}>Active</button>
-        <button onClick={() => changeFilterHAndler('Completed')}>Completed</button>
+        <Button title={'All'} onClick={() => changeFilterHAndler('All')}/>
+        <Button title={'Active'} onClick={() => changeFilterHAndler('Active')}/>
+        <Button title={'Completed'} onClick={() => changeFilterHAndler('Completed')}/>
       </div>
     </div>
   )
