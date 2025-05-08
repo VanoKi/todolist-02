@@ -48,8 +48,7 @@ export const TodolistItem = ({
 
   const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
-        addTask(newTitle)
-        setNewTitle('')
+        addTaskHandler()
       }
   }
 
