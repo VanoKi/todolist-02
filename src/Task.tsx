@@ -12,8 +12,8 @@ export const Task = ({title, isDone, removeTask}: Props) => {
     <li>
       <input type="checkbox" checked={isDone}/>
       <span>{title}</span>
-      {/*<Button title={'X'} callBack={removeTask}/>*/}
-      <button onClick={removeTask}>X</button>
+      <Button title={'X'} onClick={removeTask}/>
+      {/*<button onClick={removeTask}>X</button>*/}
     </li>
   );
 };

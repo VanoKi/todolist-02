@@ -66,8 +66,8 @@ export const TodolistItem = ({
           onKeyDown={oneKeyDawnHandler}
           onChange={onChangeHandler}
         />
-        {/*<Button title={'+'}/>*/}
-        <button onClick={addTaskHandler}>+</button>
+        <Button title={'+'} onClick={addTaskHandler}/>
+        {/*<button onClick={addTaskHandler}>+</button>*/}
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
