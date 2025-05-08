@@ -37,6 +37,10 @@ export const TodolistItem = ({
 
   const [newTitle, setNewTitle] = useState('')
 
+  const changeFilterHAndler = (val: FilterValueType) => {
+    changeFilter(val)
+  }
+
   return (
     <div>
       <h3>{title}</h3>
@@ -47,7 +51,9 @@ export const TodolistItem = ({
             if (e.key === 'Enter') {
               addTask(newTitle)
               setNewTitle('')
-          }}}
+          }
+          //   console.log(e.key)
+        }}
           onChange={(event) => setNewTitle(event.target.value)}
         />
         {/*<Button title={'+'}/>*/}
@@ -69,9 +75,9 @@ export const TodolistItem = ({
         {/*<Button title={'All'}/>*/}
         {/*<Button title={'Active'}/>*/}
         {/*<Button title={'Completed'}/>*/}
-        <button onClick={() =>changeFilter('All')}>All</button>
-        <button onClick={() =>changeFilter('Active')}>Active</button>
-        <button onClick={() =>changeFilter('Completed')}>Completed</button>
+        <button onClick={() => changeFilterHAndler('All')}>All</button>
+        <button onClick={() => changeFilterHAndler('Active')}>Active</button>
+        <button onClick={() => changeFilterHAndler('Completed')}>Completed</button>
       </div>
     </div>
   )
