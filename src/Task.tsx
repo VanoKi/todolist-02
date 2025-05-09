@@ -11,7 +11,7 @@ type Props = {
 
 export const Task = ({id, title, isDone, removeTask, changeIsDone}: Props) => {
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(id, isDone)}
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(id, e.currentTarget.checked)}
 
   return (
     <li>
