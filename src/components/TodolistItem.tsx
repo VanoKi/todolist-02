@@ -47,8 +47,10 @@ export const TodolistItem = ({
   }
 
   const addTaskHandler = () => {
-      addTask(newTitle)
+    if (newTitle.trim()) {
+      addTask(newTitle.trim())
       setNewTitle('')
+    }
   }
 
   const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
