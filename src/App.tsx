@@ -53,7 +53,7 @@ export const App = () => {
     const newTask = { id: v1(), title: newTitle, isDone: false }
     setTasks([newTask, ...tasks])
   }
-  const changeIsDone = (taskId: string, isDone: boolean) => {
+  const changeIsDone = (taskId: string) => {
     console.log(taskId)
   }
 

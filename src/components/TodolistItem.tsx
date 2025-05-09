@@ -1,6 +1,6 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
-import {useRef, useState, KeyboardEvent, ChangeEvent} from "react";
+import {useState, KeyboardEvent, ChangeEvent} from "react";
 import {Button} from "./Button.tsx";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   removeTask: (taskId: string) => void
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
-  changeIsDone: (taskId: string, isDone: boolean) => void
+  changeIsDone: (taskId: string) => void
 }
 type TaskProps = {
   id: string
@@ -35,7 +35,7 @@ export const TodolistItem = ({
         title={task.title}
         isDone={task.isDone}
         removeTask={() => removeTask(task.id)}
-        changeIsDone={task.id}
+        changeIsDone={changeIsDone}
       />
     )
   })
