@@ -58,12 +58,7 @@ export const App = () => {
     // const currentTask = tasks.find((el) => el.id === taskId)
     // if (currentTask) currentTask.isDone = !currentTask.isDone
     // setTasks([...tasks])
-    setTasks(tasks.map(el => {
-      return el.id === taskId ? {...el, isDone: isDone} : el
-    }
-    )
-    )
-  }
+    setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))}
 
   return (
     <div className="app">
