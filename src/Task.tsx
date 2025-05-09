@@ -1,16 +1,17 @@
 import {Button} from "./components/Button.tsx";
+import {ChangeEvent} from "react";
 
 type Props = {
   id: string
   title: string
   isDone: boolean
   removeTask: () => void
-  changeIsDone: (taskId: string) => void
+  changeIsDone: (taskId: string, isDone: boolean) => void
 }
 
 export const Task = ({id, title, isDone, removeTask, changeIsDone}: Props) => {
 
-  const onChangeHandler = () => {changeIsDone(id)}
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(id, isDone)}
 
   return (
     <li>
