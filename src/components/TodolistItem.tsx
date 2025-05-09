@@ -10,7 +10,7 @@ type Props = {
   removeTask: (taskId: string) => void
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
-  changeIsDone: (taskId: string, isDone: boolean) => void
+  changeIsDone: (taskId: string) => void
 }
 type TaskProps = {
   id: string
