@@ -54,14 +54,11 @@ export const App = () => {
     setTasks([newTask, ...tasks])
   }
   const changeIsDone = (taskId: string, isDone: boolean) => {
-    // console.log(taskId, isDone)
     const currentTask = tasks.find((el) => el.id === taskId)
-    // console.log(currentTask)
     if (currentTask) {
       currentTask.isDone = isDone
     }
-    setTasks(tasks)
-    console.log(tasks)
+    setTasks([...tasks], )
   }
 
   return (

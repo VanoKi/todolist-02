@@ -73,7 +73,7 @@ export const TodolistItem = ({
         <Button title={'+'} onClick={addTaskHandler}/>
       </div>
       {tasks.length === 0 ? (
-        <p>Тасок нет</p>
+        <p>There is now tasks</p>
       ) : (
         <ul>
           {mappedTasks}
