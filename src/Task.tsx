@@ -5,15 +5,15 @@ type Props = {
   title: string
   isDone: boolean
   removeTask: () => void
+  changeIsDone: (taskId) => void
 }
 
-export const Task = ({title, isDone, removeTask}: Props) => {
+export const Task = ({title, isDone, removeTask, changeIsDone}: Props) => {
   return (
     <li>
-      <input type="checkbox" checked={isDone}/>
+      <input type="checkbox" checked={isDone} onClick={changeIsDone}/>
       <span>{title}</span>
       <Button title={'X'} onClick={removeTask}/>
-      {/*<button onClick={removeTask}>X</button>*/}
     </li>
   );
 };

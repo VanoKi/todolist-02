@@ -49,10 +49,12 @@ export const App = () => {
     setTasks(tasks.filter(task => task.id !== taskId))
     // console.log(taskId)
   }
-
   const addTask = (newTitle: string) => {
     const newTask = { id: v1(), title: newTitle, isDone: false }
     setTasks([newTask, ...tasks])
+  }
+  const changeIsDone = (taskId: string, isDone: boolean) => {
+    console.log(taskId)
   }
 
   return (
@@ -63,6 +65,7 @@ export const App = () => {
         removeTask={removeTask}
         changeFilter={changeFilter}
         addTask={addTask}
+        changeIsDone={changeIsDone}
       />
     </div>
   )

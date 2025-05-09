@@ -10,6 +10,7 @@ type Props = {
   removeTask: (taskId: string) => void
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
+  changeIsDone: (taskId: string, isDone: boolean) => void
 }
 type TaskProps = {
   id: string
@@ -22,7 +23,8 @@ export const TodolistItem = ({
                                tasks,
                                removeTask,
                                changeFilter,
-                               addTask
+                               addTask,
+                               changeIsDone
 }: Props) => {
 
   const mappedTasks = tasks.map(task => {
@@ -32,7 +34,9 @@ export const TodolistItem = ({
         key={task.id}
         title={task.title}
         isDone={task.isDone}
-        removeTask={() => removeTask(task.id)}/>
+        removeTask={() => removeTask(task.id)}
+        changeIsDone={task.id}
+      />
     )
   })
 
@@ -67,7 +71,6 @@ export const TodolistItem = ({
           onChange={onChangeHandler}
         />
         <Button title={'+'} onClick={addTaskHandler}/>
-        {/*<button onClick={addTaskHandler}>+</button>*/}
       </div>
       {tasks.length === 0 ? (
         <p>Тасок нет</p>
