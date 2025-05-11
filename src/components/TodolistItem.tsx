@@ -78,7 +78,10 @@ export const TodolistItem = ({
           className={error ? 'error' : ''}
         />
         <Button title={'+'} onClick={addTaskHandler}/>
-        <p className={'error-message'}>Title is Required!</p>
+        {error ?
+          (<p className={'error-message'}>Title is Required!</p> )
+          : (<></>)
+        }
       </div>
       {tasks.length === 0 ? (
         <p>There is now tasks</p>
