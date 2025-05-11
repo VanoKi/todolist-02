@@ -71,6 +71,7 @@ export const TodolistItem = ({
           value={newTitle}
           onKeyDown={oneKeyDawnHandler}
           onChange={onChangeHandler}
+          className={'error'}
         />
         <Button title={'+'} onClick={addTaskHandler}/>
       </div>

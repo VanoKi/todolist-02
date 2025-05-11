@@ -15,7 +15,11 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone}: Props) => {
 
   return (
     <li>
-      <input type="checkbox" checked={isDone} onChange={onChangeHandler}/>
+      <input
+        type="checkbox"
+        checked={isDone}
+        onChange={onChangeHandler}
+      />
       <span>{title}</span>
       <Button title={'X'} onClick={removeTask}/>
     </li>
