@@ -41,10 +41,12 @@ export const TodolistItem = ({
   })
 
   const [newTitle, setNewTitle] = useState('')
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<string | null>('')
+  const [filter, setFilter] = useState('All')
 
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
+    setFilter(val)
   }
 
   const addTaskHandler = () => {
@@ -52,7 +54,7 @@ export const TodolistItem = ({
       addTask(newTitle.trim())
       setNewTitle('')
     } else {
-      setError(true)
+      setError('Title is required!')
     }
   }
 
@@ -64,7 +66,7 @@ export const TodolistItem = ({
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setNewTitle(event.currentTarget.value)
-    setError(false)
+    setError(null)
   }
 
   return (
@@ -78,10 +80,7 @@ export const TodolistItem = ({
           className={error ? 'error' : ''}
         />
         <Button title={'+'} onClick={addTaskHandler}/>
-        {error ?
-          (<p className={'error-message'}>Title is Required!</p> )
-          : (<></>)
-        }
+        {error && <p className={'error-message'}>{error}</p>}
       </div>
       {tasks.length === 0 ? (
         <p>There is now tasks</p>
@@ -91,9 +90,18 @@ export const TodolistItem = ({
         </ul>
       )}
       <div>
-        <Button title={'All'} onClick={() => changeFilterHAndler('All')}/>
-        <Button title={'Active'} onClick={() => changeFilterHAndler('Active')}/>
-        <Button title={'Completed'} onClick={() => changeFilterHAndler('Completed')}/>
+        <Button
+          className={filter === 'All' ? 'active-filter' : ''}
+          title={'All'}
+          onClick={() => changeFilterHAndler('All')}/>
+        <Button
+          className={filter === 'Active' ? 'active-filter' : ''}
+          title={'Active'}
+          onClick={() => changeFilterHAndler('Active')}/>
+        <Button
+          className={filter === 'Completed' ? 'active-filter' : ''}
+          title={'Completed'}
+          onClick={() => changeFilterHAndler('Completed')}/>
       </div>
     </div>
   )
