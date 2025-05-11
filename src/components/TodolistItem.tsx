@@ -41,6 +41,7 @@ export const TodolistItem = ({
   })
 
   const [newTitle, setNewTitle] = useState('')
+  const [error, setError] = useState(false)
 
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
@@ -50,6 +51,8 @@ export const TodolistItem = ({
     if (newTitle.trim()) {
       addTask(newTitle.trim())
       setNewTitle('')
+    } else {
+      setError(true)
     }
   }
 
@@ -60,7 +63,8 @@ export const TodolistItem = ({
   }
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewTitle(event.target.value)
+    setNewTitle(event.currentTarget.value)
+    setError(false)
   }
 
   return (
@@ -71,9 +75,10 @@ export const TodolistItem = ({
           value={newTitle}
           onKeyDown={oneKeyDawnHandler}
           onChange={onChangeHandler}
-          className={'error'}
+          className={error ? 'error' : ''}
         />
         <Button title={'+'} onClick={addTaskHandler}/>
+        <p className={'error-message'}>Title is Required!</p>
       </div>
       {tasks.length === 0 ? (
         <p>There is now tasks</p>

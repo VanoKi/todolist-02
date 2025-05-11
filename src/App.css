@@ -12,6 +12,10 @@
   gap: 10px;
 }
 
+.app > div > ul {
+  padding-left: 0;
+}
+
 .app > div > ul > li {
   margin-bottom: 5px;
 }
