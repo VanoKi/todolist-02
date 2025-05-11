@@ -31,6 +31,7 @@ export const App = () => {
   // ]
 
   const [val, setVal] = useState('All')
+
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
@@ -53,7 +54,6 @@ export const App = () => {
     const newTask = { id: v1(), title: newTitle, isDone: false }
     setTasks([newTask, ...tasks])
   }
-
   const changeIsDone = (taskId: string, isDone: boolean) => {
     // const currentTask = tasks.find((el) => el.id === taskId)
     // if (currentTask) currentTask.isDone = !currentTask.isDone

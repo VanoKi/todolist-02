@@ -3,7 +3,7 @@ import {FilterValueType} from "../App.tsx";
 import {useState, KeyboardEvent, ChangeEvent} from "react";
 import {Button} from "./Button.tsx";
 
-type Props = {
+type TodoListItemProps = {
   title: string
   tasks: TaskProps[]
   truck2?: string
@@ -25,7 +25,7 @@ export const TodolistItem = ({
                                changeFilter,
                                addTask,
                                changeIsDone
-}: Props) => {
+}: TodoListItemProps) => {
 
   const mappedTasks = tasks.map(task => {
     return (
@@ -83,7 +83,7 @@ export const TodolistItem = ({
         {error && <p className={'error-message'}>{error}</p>}
       </div>
       {tasks.length === 0 ? (
-        <p>There is now tasks</p>
+        <p>There are no tasks</p>
       ) : (
         <ul>
           {mappedTasks}
