@@ -3,7 +3,7 @@ import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
 
-export type FilterValueType = 'All' | 'Active' | 'Completed'
+export type FilterValueType = 'All' | 'Active' | 'Completed'| 'show'
 
 export const App = () => {
   let [tasks, setTasks] = useState(
@@ -41,8 +41,10 @@ export const App = () => {
         return tasks.filter(task => task.isDone)
       }
       case 'Active': {
-        console.log('active')
         return tasks.filter(task => !task.isDone)
+      }
+      case 'show' : {
+        return tasks.slice(0, 3)
       }
       default: return tasks
     }
@@ -60,6 +62,7 @@ export const App = () => {
     // if (currentTask) currentTask.isDone = !currentTask.isDone
     // setTasks([...tasks])
     setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))}
+  // const showFirst =
 
   return (
     <div className="app">

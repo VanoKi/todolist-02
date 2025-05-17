@@ -27,19 +27,6 @@ export const TodolistItem = ({
                                changeIsDone,
 }: TodoListItemProps) => {
 
-  // const filterTask = () => {
-  //   switch (val) {
-  //     case 'Completed': {
-  //       return tasks.filter(task => task.isDone)
-  //     }
-  //     case 'Active': {
-  //       console.log('active')
-  //       return tasks.filter(task => !task.isDone)
-  //     }
-  //     default: return tasks
-  //   }
-  // }
-
   const mappedTasks = tasks.map(task => {
 
     return (
@@ -71,13 +58,11 @@ export const TodolistItem = ({
       setError('Title is required!')
     }
   }
-
   const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         addTaskHandler()
       }
   }
-
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setNewTitle(event.currentTarget.value)
     setError(null)
@@ -116,7 +101,12 @@ export const TodolistItem = ({
           className={filter === 'Completed' ? 'active-filter' : ''}
           title={'Completed'}
           onClick={() => changeFilterHAndler('Completed')}/>
-        {/*<Button title={'show first three'} onClick={}/>*/}
+      </div>
+      <div>
+        <Button
+          className={filter === 'show' ? 'active-filter' : ''}
+          title={'Show first three tasks'}
+          onClick={() => changeFilterHAndler('show')}/>
       </div>
     </div>
   )
