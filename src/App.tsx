@@ -44,7 +44,7 @@ export const App = () => {
         return tasks.filter(task => !task.isDone)
       }
       case 'show' : {
-        return tasks.slice(0, 3)
+        return tasks.filter(task => !task.isDone).slice(0, 3)
       }
       default: return tasks
     }

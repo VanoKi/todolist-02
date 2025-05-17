@@ -49,7 +49,6 @@ export const TodolistItem = ({
     changeFilter(val)
     setFilter(val)
   }
-
   const addTaskHandler = () => {
     if (newTitle.trim()) {
       addTask(newTitle.trim())
