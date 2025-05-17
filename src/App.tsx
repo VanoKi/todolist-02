@@ -35,12 +35,13 @@ export const App = () => {
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
-  const filter = () => {
+  const filter = () => {    console.log(val)
     switch (val) {
       case 'Completed': {
         return tasks.filter(task => task.isDone)
       }
       case 'Active': {
+        console.log('active')
         return tasks.filter(task => !task.isDone)
       }
       default: return tasks

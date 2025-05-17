@@ -24,10 +24,24 @@ export const TodolistItem = ({
                                removeTask,
                                changeFilter,
                                addTask,
-                               changeIsDone
+                               changeIsDone,
 }: TodoListItemProps) => {
 
+  // const filterTask = () => {
+  //   switch (val) {
+  //     case 'Completed': {
+  //       return tasks.filter(task => task.isDone)
+  //     }
+  //     case 'Active': {
+  //       console.log('active')
+  //       return tasks.filter(task => !task.isDone)
+  //     }
+  //     default: return tasks
+  //   }
+  // }
+
   const mappedTasks = tasks.map(task => {
+
     return (
       <Task
         id={task.id}
@@ -102,6 +116,7 @@ export const TodolistItem = ({
           className={filter === 'Completed' ? 'active-filter' : ''}
           title={'Completed'}
           onClick={() => changeFilterHAndler('Completed')}/>
+        {/*<Button title={'show first three'} onClick={}/>*/}
       </div>
     </div>
   )
