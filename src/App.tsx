@@ -62,13 +62,17 @@ export const App = () => {
     // if (currentTask) currentTask.isDone = !currentTask.isDone
     // setTasks([...tasks])
     setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))}
-  // const showFirst =
+  const show = () => {
+    return filter().slice(0, 3)
+  }
+
 
   return (
     <div className="app">
       <TodolistItem
         title="What to learn"
-        tasks={filter()}
+        // tasks={filter()}
+        tasks={show()}
         removeTask={removeTask}
         changeFilter={changeFilter}
         addTask={addTask}

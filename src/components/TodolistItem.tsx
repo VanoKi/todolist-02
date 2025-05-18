@@ -105,7 +105,7 @@ export const TodolistItem = ({
         <Button
           className={filter === 'show' ? 'active-filter' : ''}
           title={'Show first three tasks'}
-          onClick={() => changeFilterHAndler('show')}/>
+          onClick={() => changeShow('show')}/>
       </div>
     </div>
   )
