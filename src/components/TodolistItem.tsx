@@ -11,6 +11,8 @@ type TodoListItemProps = {
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
   changeIsDone: (taskId: string, isDone: boolean) => void
+  changeShow: () => void
+  isShow: boolean
 }
 type TaskProps = {
   id: string
@@ -25,6 +27,8 @@ export const TodolistItem = ({
                                changeFilter,
                                addTask,
                                changeIsDone,
+                               changeShow,
+                               isShow
 }: TodoListItemProps) => {
 
   const mappedTasks = tasks.map(task => {
@@ -66,6 +70,9 @@ export const TodolistItem = ({
     setNewTitle(event.currentTarget.value)
     setError(null)
   }
+  const changeShowHandler = () => {
+    changeShow()
+  }
 
   return (
     <div>
@@ -103,9 +110,9 @@ export const TodolistItem = ({
       </div>
       <div>
         <Button
-          className={filter === 'show' ? 'active-filter' : ''}
+          className={ isShow ? 'active-filter' : ''}
           title={'Show first three tasks'}
-          onClick={() => changeShow('show')}/>
+          onClick={changeShowHandler}/>
       </div>
     </div>
   )

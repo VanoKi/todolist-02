@@ -31,11 +31,12 @@ export const App = () => {
   // ]
 
   const [val, setVal] = useState('All')
+  const [isShow, setIsShow] = useState(false)
 
   const changeFilter = (val: FilterValueType) => {
     setVal(val)
   }
-  const filter = () => {    console.log(val)
+  const filter = () => {
     switch (val) {
       case 'Completed': {
         return tasks.filter(task => task.isDone)
@@ -62,10 +63,14 @@ export const App = () => {
     // if (currentTask) currentTask.isDone = !currentTask.isDone
     // setTasks([...tasks])
     setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))}
-  const show = () => {
-    return filter().slice(0, 3)
+
+  const changeShow = () => {
+    setIsShow(!isShow)
   }
 
+  const show = () => {
+    return isShow ? filter().slice(0, 3) : filter()
+  }
 
   return (
     <div className="app">
@@ -73,6 +78,8 @@ export const App = () => {
         title="What to learn"
         // tasks={filter()}
         tasks={show()}
+        changeShow={changeShow}
+        isShow={isShow}
         removeTask={removeTask}
         changeFilter={changeFilter}
         addTask={addTask}
