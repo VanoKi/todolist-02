@@ -9,7 +9,7 @@ type TodoListItemProps = {
   truck2?: string
   removeTask: (todolistID: string, taskId: string) => void
   changeFilter: (val: FilterValueType) => void
-  addTask: (newTitle: string) => void
+  addTask: (todolistId: string, newTitle: string) => void
   changeIsDone: (taskId: string, isDone: boolean) => void
   filter:FilterValueType
   todolistId: string
@@ -53,7 +53,7 @@ export const TodolistItem = ({
   }
   const addTaskHandler = () => {
     if (newTitle.trim()) {
-      addTask(newTitle.trim())
+      addTask(todolistId, newTitle.trim())
       setNewTitle('')
     } else {
       setError('Title is required!')
