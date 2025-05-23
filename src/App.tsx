@@ -3,16 +3,16 @@ import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
 
-export type FilterValueType = 'All' | 'Active' | 'Completed'| 'show'
+export type FilterValueType = 'All' | 'Active' | 'Completed' | 'show'
 
 export const App = () => {
   let [tasks, setTasks] = useState(
     [
-      { id: v1(), title: "Do morning exercise", isDone: true },
-      { id: v1(), title: "Read 20 pages of a book", isDone: false },
-      { id: v1(), title: "Watch a React tutorial", isDone: false },
-      { id: v1(), title: "Prepare lunch", isDone: true },
-      { id: v1(), title: "Write in diary", isDone: false },
+      {id: v1(), title: "Do morning exercise", isDone: true},
+      {id: v1(), title: "Read 20 pages of a book", isDone: false},
+      {id: v1(), title: "Watch a React tutorial", isDone: false},
+      {id: v1(), title: "Prepare lunch", isDone: true},
+      {id: v1(), title: "Write in diary", isDone: false},
     ]
   )
   // const tasksWork = [
@@ -47,7 +47,8 @@ export const App = () => {
       case 'show' : {
         return tasks.filter(task => !task.isDone).slice(0, 3)
       }
-      default: return tasks
+      default:
+        return tasks
     }
   }
   const removeTask = (taskId: string) => {
@@ -55,14 +56,15 @@ export const App = () => {
     // console.log(taskId)
   }
   const addTask = (newTitle: string) => {
-    const newTask = { id: v1(), title: newTitle, isDone: false }
+    const newTask = {id: v1(), title: newTitle, isDone: false}
     setTasks([newTask, ...tasks])
   }
   const changeIsDone = (taskId: string, isDone: boolean) => {
     // const currentTask = tasks.find((el) => el.id === taskId)
     // if (currentTask) currentTask.isDone = !currentTask.isDone
     // setTasks([...tasks])
-    setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))}
+    setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))
+  }
 
   const changeShow = () => {
     setIsShow(!isShow)
@@ -71,22 +73,24 @@ export const App = () => {
   const show = () => {
     return isShow ? filter().slice(0, 3) : filter()
   }
-  const arr = [0, 1, 2]
+  const arr = [{title: "What to learn"},
+    {title: "What to learn1"},
+    {title: "What to learn2"}]
   return (
     <div className="app">
       {arr.map(mappedTasks => {
         return (
           <TodolistItem
-          title="What to learn"
-          // tasks={filter()}
-          tasks={show()}
-          changeShow={changeShow}
-          isShow={isShow}
-          removeTask={removeTask}
-          changeFilter={changeFilter}
-          addTask={addTask}
-          changeIsDone={changeIsDone}
-        />
+            title={mappedTasks.title}
+            // tasks={filter()}
+            tasks={show()}
+            changeShow={changeShow}
+            isShow={isShow}
+            removeTask={removeTask}
+            changeFilter={changeFilter}
+            addTask={addTask}
+            changeIsDone={changeIsDone}
+          />
         )
       })}
     </div>
