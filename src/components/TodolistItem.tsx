@@ -10,7 +10,7 @@ type TodoListItemProps = {
   removeTask: (todolistID: string, taskId: string) => void
   changeFilter: (val: FilterValueType) => void
   addTask: (todolistId: string, newTitle: string) => void
-  changeIsDone: (taskId: string, isDone: boolean) => void
+  changeIsDone: (todolistId: string, taskId: string, isDone: boolean) => void
   filter:FilterValueType
   todolistId: string
 }
@@ -41,6 +41,7 @@ export const TodolistItem = ({
         isDone={task.isDone}
         removeTask={() => removeTask(todolistId, task.id)}
         changeIsDone={changeIsDone}
+        todolistId={todolistId}
       />
     )
   })

@@ -64,11 +64,8 @@ export const App = () => {
     // setTasks([newTask, ...tasks])
     setTasks({...tasks, [todolistId]:[newTask, ...tasks[todolistId]]})
   }
-  const changeIsDone = (taskId: string, isDone: boolean) => {
-    // const currentTask = tasks.find((el) => el.id === taskId)
-    // if (currentTask) currentTask.isDone = !currentTask.isDone
-    // setTasks([...tasks])
-    // setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))
+  const changeIsDone = (todolostId: string, taskId: string, isDone: boolean) => {
+    setTasks({...tasks, [todolostId]:tasks[todolostId].map(el => el.id === taskId ? {...el, isDone} : el)})
   }
 
   return (
