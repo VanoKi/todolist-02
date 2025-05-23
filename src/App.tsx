@@ -39,8 +39,9 @@ export const App = () => {
 
   // const [val, setVal] = useState('All')
 
-  const changeFilter = (val: FilterValueType) => {
+  const changeFilter = (todolistId: string, filter: FilterValueType) => {
     // setVal(val)
+    setTodolists(todolists.map( tl => tl.id === todolistId ? {...tl, filter} : tl))
   }
   // const filter = () => {
   //   switch (val) {
@@ -86,7 +87,7 @@ export const App = () => {
             // tasks={filter()}
             tasks={tasksForTodolist}
             removeTask={removeTask}
-            changeFilter={changeFilter}
+            changeFilter={(filter) => changeFilter(mappedTasks.id, filter)}
             addTask={addTask}
             changeIsDone={changeIsDone}
             filter={mappedTasks.filter}
