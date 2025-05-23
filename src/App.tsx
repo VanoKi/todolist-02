@@ -71,20 +71,24 @@ export const App = () => {
   const show = () => {
     return isShow ? filter().slice(0, 3) : filter()
   }
-
+  const arr = [0, 1, 2]
   return (
     <div className="app">
-      <TodolistItem
-        title="What to learn"
-        // tasks={filter()}
-        tasks={show()}
-        changeShow={changeShow}
-        isShow={isShow}
-        removeTask={removeTask}
-        changeFilter={changeFilter}
-        addTask={addTask}
-        changeIsDone={changeIsDone}
-      />
+      {arr.map(mappedTasks => {
+        return (
+          <TodolistItem
+          title="What to learn"
+          // tasks={filter()}
+          tasks={show()}
+          changeShow={changeShow}
+          isShow={isShow}
+          removeTask={removeTask}
+          changeFilter={changeFilter}
+          addTask={addTask}
+          changeIsDone={changeIsDone}
+        />
+        )
+      })}
     </div>
   )
 }
