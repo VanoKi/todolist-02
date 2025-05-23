@@ -42,11 +42,6 @@ export const App = () => {
   })
 
   const changeFilter = (todolistId: string, newFilter: FilterValueType) => {
-   /* const currentTodo = todolists.find(el => el.id === todolistId)
-    if (currentTodo) {
-      currentTodo.filter = newFilter
-    }
-    setTodolists([...todolists])*/
     setTodolists(todolists.map(el => el.id === todolistId ? {...el, filter: newFilter} : el))
   }
   // const filter = () => {
@@ -61,9 +56,8 @@ export const App = () => {
   //       return tasks
   //   }
   // }
-  const removeTask = (taskId: string) => {
-    // setTasks(tasks.filter(task => task.id !== taskId))
-    // console.log(taskId)
+  const removeTask = (todolistID: string, taskId: string) => {
+    setTasks({...tasks, [todolistID] : tasks[todolistID].filter(el => el.id !== taskId)})
   }
   const addTask = (newTitle: string) => {
     // const newTask = {id: v1(), title: newTitle, isDone: false}

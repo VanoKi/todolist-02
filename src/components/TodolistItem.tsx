@@ -7,7 +7,7 @@ type TodoListItemProps = {
   title: string
   tasks: TaskProps[]
   truck2?: string
-  removeTask: (taskId: string) => void
+  removeTask: (todolistID: string, taskId: string) => void
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
   changeIsDone: (taskId: string, isDone: boolean) => void
@@ -39,7 +39,7 @@ export const TodolistItem = ({
         key={task.id}
         title={task.title}
         isDone={task.isDone}
-        removeTask={() => removeTask(task.id)}
+        removeTask={() => removeTask(todolistId, task.id)}
         changeIsDone={changeIsDone}
       />
     )
