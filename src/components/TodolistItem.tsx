@@ -12,8 +12,9 @@ type TodoListItemProps = {
   addTask: (newTitle: string) => void
   changeIsDone: (taskId: string, isDone: boolean) => void
   filter:FilterValueType
+  todolistId: string
 }
-type TaskProps = {
+export type TaskProps = {
   id: string
   title: string
   isDone: boolean
@@ -26,7 +27,8 @@ export const TodolistItem = ({
                                changeFilter,
                                addTask,
                                changeIsDone,
-                               filter
+                               filter,
+                               todolistId
 }: TodoListItemProps) => {
 
   const mappedTasks = tasks.map(task => {
