@@ -11,8 +11,7 @@ type TodoListItemProps = {
   changeFilter: (val: FilterValueType) => void
   addTask: (newTitle: string) => void
   changeIsDone: (taskId: string, isDone: boolean) => void
-  changeShow: () => void
-  isShow: boolean
+  filter:FilterValueType
 }
 type TaskProps = {
   id: string
@@ -27,8 +26,7 @@ export const TodolistItem = ({
                                changeFilter,
                                addTask,
                                changeIsDone,
-                               changeShow,
-                               isShow
+                               filter
 }: TodoListItemProps) => {
 
   const mappedTasks = tasks.map(task => {
@@ -47,7 +45,6 @@ export const TodolistItem = ({
 
   const [newTitle, setNewTitle] = useState('')
   const [error, setError] = useState<string | null>('')
-  const [filter, setFilter] = useState('All')
 
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
@@ -69,9 +66,6 @@ export const TodolistItem = ({
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setNewTitle(event.currentTarget.value)
     setError(null)
-  }
-  const changeShowHandler = () => {
-    changeShow()
   }
 
   return (
@@ -107,12 +101,6 @@ export const TodolistItem = ({
           className={filter === 'Completed' ? 'active-filter' : ''}
           title={'Completed'}
           onClick={() => changeFilterHAndler('Completed')}/>
-      </div>
-      <div>
-        <Button
-          className={ isShow ? 'active-filter' : ''}
-          title={'Show first three tasks'}
-          onClick={changeShowHandler}/>
       </div>
     </div>
   )

@@ -3,9 +3,16 @@ import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
 
-export type FilterValueType = 'All' | 'Active' | 'Completed' | 'show'
+export type FilterValueType = 'All' | 'Active' | 'Completed'
+export type TodolistType = {id: string, title: string, filter: FilterValueType}
 
 export const App = () => {
+  const arr = [
+    {id: v1(), title: "What to learn", filter: 'All'},
+    {id: v1(), title: "What to learn-1", filter: 'All'},
+    {id: v1(), title: "What to learn-2", filter: 'All'}
+  ]
+  let [todolists, setTodolists] = useState<TodolistType>(arr)
   let [tasks, setTasks] = useState(
     [
       {id: v1(), title: "Do morning exercise", isDone: true},
@@ -30,27 +37,23 @@ export const App = () => {
   //   { id: 15, title: "Play a board game", isDone: false },
   // ]
 
-  const [val, setVal] = useState('All')
-  const [isShow, setIsShow] = useState(false)
+  // const [val, setVal] = useState('All')
 
   const changeFilter = (val: FilterValueType) => {
-    setVal(val)
+    // setVal(val)
   }
-  const filter = () => {
-    switch (val) {
-      case 'Completed': {
-        return tasks.filter(task => task.isDone)
-      }
-      case 'Active': {
-        return tasks.filter(task => !task.isDone)
-      }
-      case 'show' : {
-        return tasks.filter(task => !task.isDone).slice(0, 3)
-      }
-      default:
-        return tasks
-    }
-  }
+  // const filter = () => {
+  //   switch (val) {
+  //     case 'Completed': {
+  //       return tasks.filter(task => task.isDone)
+  //     }
+  //     case 'Active': {
+  //       return tasks.filter(task => !task.isDone)
+  //     }
+  //     default:
+  //       return tasks
+  //   }
+  // }
   const removeTask = (taskId: string) => {
     setTasks(tasks.filter(task => task.id !== taskId))
     // console.log(taskId)
@@ -66,30 +69,27 @@ export const App = () => {
     setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: isDone} : el))
   }
 
-  const changeShow = () => {
-    setIsShow(!isShow)
-  }
-
-  const show = () => {
-    return isShow ? filter().slice(0, 3) : filter()
-  }
-  const arr = [{title: "What to learn"},
-    {title: "What to learn1"},
-    {title: "What to learn2"}]
   return (
     <div className="app">
-      {arr.map(mappedTasks => {
+      {todolists.map((mappedTasks) => {
+        let tasksForTodolist = tasks
+        if (mappedTasks.filter === 'Active') {
+          tasksForTodolist = tasks.filter(task => !task.isDone)
+        }
+        if (mappedTasks.filter === 'Completed') {
+          tasksForTodolist = tasks.filter(task => task.isDone)
+        }
         return (
           <TodolistItem
+            key={mappedTasks.id}
             title={mappedTasks.title}
             // tasks={filter()}
-            tasks={show()}
-            changeShow={changeShow}
-            isShow={isShow}
+            tasks={tasksForTodolist}
             removeTask={removeTask}
             changeFilter={changeFilter}
             addTask={addTask}
             changeIsDone={changeIsDone}
+            filter={mappedTasks.filter}
           />
         )
       })}
