@@ -13,13 +13,9 @@
 }
 
 .app > div > :first-child {
-  border: 2px dotted black;
   display: flex;
   justify-content: space-between;
-}
-
-h3 {
-  margin: 0;
+  align-items: baseline;
 }
 
 .app > div > ul {
