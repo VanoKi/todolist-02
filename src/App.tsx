@@ -68,7 +68,6 @@ export const App = () => {
     setTasks({...tasks, [todolostId]:tasks[todolostId].map(el => el.id === taskId ? {...el, isDone} : el)})
   }
   const removeTodolist = (todolistID: string) => {
-    // console.log(todolistID)
     setTodolists(todolists.filter(todoList => todoList.id !== todolistID))
   }
 
