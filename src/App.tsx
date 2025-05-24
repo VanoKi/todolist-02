@@ -67,6 +67,10 @@ export const App = () => {
   const changeIsDone = (todolostId: string, taskId: string, isDone: boolean) => {
     setTasks({...tasks, [todolostId]:tasks[todolostId].map(el => el.id === taskId ? {...el, isDone} : el)})
   }
+  const removeTodolist = (todolistID: string) => {
+    // console.log(todolistID)
+    setTodolists(todolists.filter(todoList => todoList.id !== todolistID))
+  }
 
   return (
     <div className="app">
@@ -89,6 +93,7 @@ export const App = () => {
             addTask={addTask}
             changeIsDone={changeIsDone}
             filter={el.filter}
+            removeTodolist={removeTodolist}
           />
         )
       })}

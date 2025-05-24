@@ -13,6 +13,7 @@ type TodoListItemProps = {
   changeIsDone: (todolistId: string, taskId: string, isDone: boolean) => void
   filter:FilterValueType
   todolistId: string
+  removeTodolist: (todolistId: string) => void
 }
 export type TaskProps = {
   id: string
@@ -28,7 +29,8 @@ export const TodolistItem = ({
                                addTask,
                                changeIsDone,
                                filter,
-                               todolistId
+                               todolistId,
+                               removeTodolist
 }: TodoListItemProps) => {
 
   const mappedTasks = tasks.map(task => {
@@ -72,7 +74,10 @@ export const TodolistItem = ({
 
   return (
     <div>
-      <h3>{title}</h3>
+      <div>
+        <h3>{title}</h3>
+        <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
+      </div>
       <div>
         <input
           value={newTitle}
