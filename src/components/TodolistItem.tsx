@@ -2,6 +2,7 @@ import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import {useState, KeyboardEvent, ChangeEvent} from "react";
 import {Button} from "./Button.tsx";
+import {Input} from "./Input.tsx";
 
 type TodoListItemProps = {
   title: string
@@ -79,14 +80,15 @@ export const TodolistItem = ({
         <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
       </div>
       <div>
-        <input
+        <Input
           placeholder={'Enter the task'}
           value={newTitle}
-          onKeyDown={oneKeyDawnHandler}
-          onChange={onChangeHandler}
+          onKeyDown={(e) => oneKeyDawnHandler(e)}
+          onChange={(e) => onChangeHandler(e)}
           className={error ? 'error' : ''}
+          title={'+'}
+          onClick={addTaskHandler}
         />
-        <Button title={'+'} onClick={addTaskHandler}/>
         {error && <p className={'error-message'}>{error}</p>}
       </div>
       {tasks.length === 0 ? (

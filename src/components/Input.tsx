@@ -1,5 +1,3 @@
-// @flow
-import * as React from 'react';
 import {Button} from "./Button.tsx";
 
 type Props = {
@@ -12,7 +10,7 @@ type Props = {
   onClick: () => void
 };
 export const Input = (props: Props) => {
-  const {placeholder, className, onChange, value, onKeyDown} = props
+  const {placeholder, className, onChange, value, onKeyDown, title, onClick} = props
   return (
     <div>
       <input
@@ -23,7 +21,7 @@ export const Input = (props: Props) => {
         className={className}
       />
       <Button
-        title={'+'}
+        title={title}
         onClick={onClick}
       />
     </div>
