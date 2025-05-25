@@ -80,6 +80,7 @@ export const TodolistItem = ({
       </div>
       <div>
         <input
+          placeholder={'Enter the task'}
           value={newTitle}
           onKeyDown={oneKeyDawnHandler}
           onChange={onChangeHandler}
