@@ -29,6 +29,8 @@ export const App = () => {
     [todolistId2]: [
       { id: v1(), title: "about Sluck", isDone: false },
       { id: v1(), title: "about Circumstances", isDone: false },
+      { id: v1(), title: "about learning in Incubator", isDone: false },
+      { id: v1(), title: "about Incubator in common", isDone: false },
       { id: v1(), title: "Gaidukevich destiny", isDone: false },
       { id: v1(), title: "about abbey and monastery", isDone: false },
     ],
