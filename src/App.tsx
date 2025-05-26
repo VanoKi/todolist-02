@@ -72,6 +72,7 @@ export const App = () => {
     // setTasks(tasks.filter(taskList => taskList !== todolistID))
     delete tasks[todolistID]
   }
+  console.log(`App is render ${new Date().toLocaleTimeString()}`)
 
   return (
     <div className="app">

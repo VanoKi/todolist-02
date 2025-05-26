@@ -12,6 +12,7 @@ type Props = {
 };
 export const Input = (props: Props) => {
   const {placeholder, className, onChange, value, onKeyDown, title, onClick, onBlur} = props
+  console.log(`Input is render ${new Date().toLocaleTimeString()}`)
   return (
     <div>
       <input

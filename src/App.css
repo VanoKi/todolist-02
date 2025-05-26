@@ -60,3 +60,8 @@
 input {
   text-align: center;
 }
+
+.app p {
+  font-size: 0.7rem;
+  color: darkblue;
+}
