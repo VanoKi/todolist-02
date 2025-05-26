@@ -85,8 +85,9 @@ export const App = () => {
   return (
     <div className="app">
       <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
-      {todolists.map(el => {
-        return (
+      <div className={'todolist-container'}>
+        {todolists.map(el => {
+          return (
             <TodolistItem
               key={el.id}
               todolistId={el.id}
@@ -99,8 +100,9 @@ export const App = () => {
               filter={el.filter}
               removeTodolist={removeTodolist}
             />
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }

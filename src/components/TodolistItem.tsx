@@ -61,7 +61,7 @@ export const TodolistItem = ({
 
   return (
     <div className={'todolist'}>
-      <div>
+      <div className={'heaadline'}>
         <h2>{title}</h2>
         <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
       </div>
