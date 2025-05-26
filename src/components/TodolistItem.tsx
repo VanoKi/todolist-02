@@ -1,6 +1,5 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
-import {useState, KeyboardEvent, ChangeEvent} from "react";
 import {Button} from "./Button.tsx";
 import {Input} from "./Input.tsx";
 
@@ -56,33 +55,9 @@ export const TodolistItem = ({
     )
   })
 
-  const [newTitle, setNewTitle] = useState('')
-
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
   }
-  const addTaskHandler = () => {
-    if (newTitle.trim()) {
-      addTask(todolistId, newTitle.trim())
-      setNewTitle('')
-    } else {
-      setError('Title is required!')
-    }
-  }
-  const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        addTaskHandler()
-      }
-  }
-  // const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setNewTitle(event.currentTarget.value)
-  //   setError(null)
-  // }
-  // const onBlurHandler = () => {
-  //   setError(null)
-  // }
-
-  console.log(`TodolistItem ${todolistId} is render ${new Date().toLocaleTimeString()}`)
 
   return (
     <div className={'todolist'}>
@@ -95,11 +70,8 @@ export const TodolistItem = ({
       <div>
         <Input
           placeholder={'Enter the task'}
-          value={newTitle}
-          onKeyDown={(e) => oneKeyDawnHandler(e)}
-          onChange={(e) => onChangeHandler(e)}
-          title={'+'}
-          onClick={addTaskHandler}
+          buttonTitle={'+'}
+          onSubmit={(newTitle) => addTask(todolistId, newTitle)}
         />
       </div>
       {tasks.length === 0 ? (

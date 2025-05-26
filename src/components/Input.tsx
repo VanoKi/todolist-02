@@ -1,24 +1,34 @@
 import {Button} from "./Button.tsx";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, KeyboardEvent, useState} from "react";
 
 type Props = {
   placeholder: string
-  value: string
-  onKeyDown: () => void
-  onChange: () => void
-  title: string
-  onClick: () => void
+  buttonTitle: string
+  onSubmit: (value: string) => void
 };
 export const Input = (props: Props) => {
-  const {placeholder, onChange, value, onKeyDown, title, onClick} = props
+  const {placeholder, buttonTitle, onSubmit} = props
 
   const [error, setError] = useState<string | null>(null)
-
-  const onBlur = () => {setError(null)}
+  const [value, setValue] = useState('')
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewTitle(event.currentTarget.value)
+    setValue(event.currentTarget.value)
     setError(null)
+  }
+
+  const oneKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      addTaskHandler()
+    }
+  }
+  const addTaskHandler = () => {
+    if (value.trim()) {
+      onSubmit(value.trim())
+      setValue('')
+    } else {
+      setError('Title is required!')
+    }
   }
 
   console.log(`Input is render ${new Date().toLocaleTimeString()}`)
@@ -27,14 +37,14 @@ export const Input = (props: Props) => {
       <input
         placeholder={placeholder}
         value={value}
-        onKeyDown={onKeyDown}
-        onChange={onChange}
-        onBlur={onBlur}
+        onKeyDown={oneKeyDawnHandler}
+        onChange={onChangeHandler}
+        onBlur={() => setError(null)}
         className={error ? 'error' : ''}
       />
       <Button
-        title={title}
-        onClick={onClick}
+        title={buttonTitle}
+        onClick={addTaskHandler}
       />
       {error && <p className={'error-message'}>{error}</p>}
     </div>

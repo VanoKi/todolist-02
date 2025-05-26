@@ -75,21 +75,15 @@ export const App = () => {
   }
   console.log(`App is render ${new Date().toLocaleTimeString()}`)
 
+  const addTodolistTitle = (newTitle: string) => {
+
+  }
+
   return (
     <div className="app">
+      <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolistTitle}/>
       {todolists.map(el => {
-
         return (
-          <>
-            {/*<Input*/}
-            {/*  placeholder={'Enter the title of the task list'}*/}
-            {/*  value={}*/}
-            {/*  onKeyDown={}*/}
-            {/*  onChange={}*/}
-            {/*  className={}*/}
-            {/*  title={}*/}
-            {/*  onClick={}*/}
-            {/*/>*/}
             <TodolistItem
               key={el.id}
               todolistId={el.id}
@@ -102,7 +96,6 @@ export const App = () => {
               filter={el.filter}
               removeTodolist={removeTodolist}
             />
-          </>
         )
       })}
     </div>
