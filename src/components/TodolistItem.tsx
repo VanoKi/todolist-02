@@ -34,7 +34,14 @@ export const TodolistItem = ({
                                removeTodolist
 }: TodoListItemProps) => {
 
-  const mappedTasks = tasks.map(task => {
+  let tasksForTodolist = tasks
+  if (filter === 'Active') {
+    tasksForTodolist = tasks.filter(task => !task.isDone)
+  }
+  if (filter === 'Completed') {
+    tasksForTodolist = tasks.filter(task => task.isDone)
+  }
+  const mappedTasks = tasksForTodolist.map(task => {
 
     return (
       <Task
@@ -50,7 +57,6 @@ export const TodolistItem = ({
   })
 
   const [newTitle, setNewTitle] = useState('')
-  const [error, setError] = useState<string | null>(null)
 
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
@@ -68,15 +74,16 @@ export const TodolistItem = ({
         addTaskHandler()
       }
   }
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewTitle(event.currentTarget.value)
-    setError(null)
-  }
-  const onBlurHandler = () => {
-    setError(null)
-  }
+  // const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setNewTitle(event.currentTarget.value)
+  //   setError(null)
+  // }
+  // const onBlurHandler = () => {
+  //   setError(null)
+  // }
 
   console.log(`TodolistItem ${todolistId} is render ${new Date().toLocaleTimeString()}`)
+
   return (
     <div className={'todolist'}>
       <div>
@@ -91,12 +98,9 @@ export const TodolistItem = ({
           value={newTitle}
           onKeyDown={(e) => oneKeyDawnHandler(e)}
           onChange={(e) => onChangeHandler(e)}
-          className={error ? 'error' : ''}
           title={'+'}
           onClick={addTaskHandler}
-          onBlur={onBlurHandler}
         />
-        {error && <p className={'error-message'}>{error}</p>}
       </div>
       {tasks.length === 0 ? (
         <p>There are no tasks</p>

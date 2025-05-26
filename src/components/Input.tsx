@@ -1,17 +1,26 @@
 import {Button} from "./Button.tsx";
+import {ChangeEvent, useState} from "react";
 
 type Props = {
   placeholder: string
   value: string
   onKeyDown: () => void
   onChange: () => void
-  className: string
   title: string
   onClick: () => void
-  onBlur: () => void
 };
 export const Input = (props: Props) => {
-  const {placeholder, className, onChange, value, onKeyDown, title, onClick, onBlur} = props
+  const {placeholder, onChange, value, onKeyDown, title, onClick} = props
+
+  const [error, setError] = useState<string | null>(null)
+
+  const onBlur = () => {setError(null)}
+
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewTitle(event.currentTarget.value)
+    setError(null)
+  }
+
   console.log(`Input is render ${new Date().toLocaleTimeString()}`)
   return (
     <div>
@@ -20,13 +29,14 @@ export const Input = (props: Props) => {
         value={value}
         onKeyDown={onKeyDown}
         onChange={onChange}
-        className={className}
         onBlur={onBlur}
+        className={error ? 'error' : ''}
       />
       <Button
         title={title}
         onClick={onClick}
       />
+      {error && <p className={'error-message'}>{error}</p>}
     </div>
   );
 };
