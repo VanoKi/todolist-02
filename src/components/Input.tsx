@@ -8,9 +8,10 @@ type Props = {
   className: string
   title: string
   onClick: () => void
+  onBlur: () => void
 };
 export const Input = (props: Props) => {
-  const {placeholder, className, onChange, value, onKeyDown, title, onClick} = props
+  const {placeholder, className, onChange, value, onKeyDown, title, onClick, onBlur} = props
   return (
     <div>
       <input
@@ -19,6 +20,7 @@ export const Input = (props: Props) => {
         onKeyDown={onKeyDown}
         onChange={onChange}
         className={className}
+        onBlur={onBlur}
       />
       <Button
         title={title}

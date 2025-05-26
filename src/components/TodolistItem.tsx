@@ -50,7 +50,7 @@ export const TodolistItem = ({
   })
 
   const [newTitle, setNewTitle] = useState('')
-  const [error, setError] = useState<string | null>('')
+  const [error, setError] = useState<string | null>(null)
 
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
@@ -72,6 +72,9 @@ export const TodolistItem = ({
     setNewTitle(event.currentTarget.value)
     setError(null)
   }
+  const onBlurHandler = () => {
+    setError(null)
+  }
 
   return (
     <div>
@@ -88,6 +91,7 @@ export const TodolistItem = ({
           className={error ? 'error' : ''}
           title={'+'}
           onClick={addTaskHandler}
+          onBlur={onBlurHandler}
         />
         {error && <p className={'error-message'}>{error}</p>}
       </div>
