@@ -20,6 +20,7 @@
 
 .app > div > ul {
   padding-left: 0;
+  margin: 0 auto;
 }
 
 .app > div > ul > li {
@@ -68,5 +69,5 @@ input {
 }
 
 .todolist {
-  padding: 0 20px;
+  padding: 0 10px;
 }
