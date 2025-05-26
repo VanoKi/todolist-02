@@ -14,7 +14,7 @@ export const App = () => {
 
   const [todolists, setTodolists] = useState<TodolistType[]>([
     { id: todolistId1, title: 'What to learn', filter: 'All' },
-    { id: todolistId2, title: 'What to buy', filter: 'All' },
+    { id: todolistId2, title: 'Talk to Veronika', filter: 'All' },
     // { id: todolistId3, title: 'What to buy', filter: 'All' },
   ])
 
@@ -27,11 +27,10 @@ export const App = () => {
       {id: v1(), title: "Write in diary", isDone: false},
     ],
     [todolistId2]: [
-      { id: v1(), title: "Check and reply to emails", isDone: true },
-      { id: v1(), title: "Finish layout task", isDone: false },
-      { id: v1(), title: "Team call at 3 PM", isDone: false },
-      { id: v1(), title: "Fix bugs from yesterday", isDone: true },
-      { id: v1(), title: "Review pull requests", isDone: false },
+      { id: v1(), title: "about Sluck", isDone: false },
+      { id: v1(), title: "about Circumstances", isDone: false },
+      { id: v1(), title: "Gaidukebich destiny", isDone: false },
+      { id: v1(), title: "abour abbey and monastery", isDone: false },
     ],
     // [todolistId3]:[
     //     { id: v1(), title: "Go for a walk in the park", isDone: false },
@@ -75,13 +74,15 @@ export const App = () => {
   }
   console.log(`App is render ${new Date().toLocaleTimeString()}`)
 
-  const addTodolistTitle = (newTitle: string) => {
-
+  const addTodolist = (title: string) => {
+    const newTodolsit: TodolistType = {id: v1(), title, filter: 'All'}
+    setTodolists([...todolists, newTodolsit])
+    setTasks({...tasks, [newTodolsit.id]:[]})
   }
 
   return (
     <div className="app">
-      <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolistTitle}/>
+      <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
       {todolists.map(el => {
         return (
             <TodolistItem
