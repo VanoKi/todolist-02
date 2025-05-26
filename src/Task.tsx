@@ -1,5 +1,6 @@
 import {Button} from "./components/Button.tsx";
-import {ChangeEvent} from "react";
+import {ChangeEvent, useState} from "react";
+import {EditableSpan} from "./components/EditableSpan.tsx";
 
 type Props = {
   id: string
@@ -8,11 +9,16 @@ type Props = {
   removeTask: () => void
   changeIsDone: (todolistId: string, taskId: string, isDone: boolean) => void
   todolistId: string
+  updateTaskTitle: (todolistId:string, taskId: string, updatedTitle: string) => void
 }
 
-export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId}: Props) => {
+export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, updateTaskTitle}: Props) => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(todolistId, id, e.currentTarget.checked)}
+  
+  // const updateTaskHandler = () => {
+  //   updateTaskTitle(todolistId, )
+  // }
 
   return (
     <li className={isDone ? 'is-done' : ''}>
@@ -21,7 +27,7 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId}: 
         checked={isDone}
         onChange={onChangeHandler}
       />
-      <span>{title}</span>
+      <EditableSpan title={title}/>
       <Button title={'X'} onClick={removeTask}/>
     </li>
   );

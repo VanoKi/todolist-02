@@ -1,10 +1,29 @@
-type Props = {
+import {ChangeEvent, useState} from "react";
 
+type Props = {
+  title: string
+  onClick?: (title: string) => void
 };
 export const EditableSpan = (props: Props) => {
-  return (
-    <div>
+  const {title} = props
+  const [isEdit, setIsEdit] = useState(false)
+  const [updatedValue, setUpdatedValue] = useState(title)
+  const onEditHandler = () => {
+    setIsEdit(!isEdit)
+  }
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setUpdatedValue(event.currentTarget.value)
+    // setError(null)
+  }
 
-    </div>
+  return (
+    isEdit ?
+      <input
+        value={updatedValue}
+        onBlur={onEditHandler}
+        autoFocus
+        onChange={onChangeHandler}
+      />
+      : <span onDoubleClick={onEditHandler}>{updatedValue}</span>
   );
 };

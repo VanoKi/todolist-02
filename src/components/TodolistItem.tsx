@@ -2,6 +2,7 @@ import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import {Button} from "./Button.tsx";
 import {Input} from "./Input.tsx";
+import {useState} from "react";
 
 type TodoListItemProps = {
   title: string
@@ -11,9 +12,10 @@ type TodoListItemProps = {
   changeFilter: (val: FilterValueType) => void
   addTask: (todolistId: string, newTitle: string) => void
   changeIsDone: (todolistId: string, taskId: string, isDone: boolean) => void
-  filter:FilterValueType
+  filter: FilterValueType
   todolistId: string
   removeTodolist: (todolistId: string) => void
+  updateTaskTitle: (todolistId: string, taskId: string, updatedTitle: string) => void
 }
 export type TaskProps = {
   id: string
@@ -21,17 +23,8 @@ export type TaskProps = {
   isDone: boolean
 }
 
-export const TodolistItem = ({
-                               title,
-                               tasks,
-                               removeTask,
-                               changeFilter,
-                               addTask,
-                               changeIsDone,
-                               filter,
-                               todolistId,
-                               removeTodolist
-}: TodoListItemProps) => {
+export const TodolistItem = (props: TodoListItemProps) => {
+  const {title, tasks, removeTask, changeFilter, addTask, changeIsDone, filter, todolistId,removeTodolist, updateTaskTitle} = props
 
   let tasksForTodolist = tasks
   if (filter === 'Active') {
@@ -51,6 +44,7 @@ export const TodolistItem = ({
         removeTask={() => removeTask(todolistId, task.id)}
         changeIsDone={changeIsDone}
         todolistId={todolistId}
+        updateTaskTitle={updateTaskTitle}
       />
     )
   })

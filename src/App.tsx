@@ -11,13 +11,11 @@ export const App = () => {
   const todolistId1 = v1()
   const todolistId2 = v1()
   // const todolistId3 = v1()
-
   const [todolists, setTodolists] = useState<TodolistType[]>([
     { id: todolistId1, title: 'What to learn', filter: 'All' },
     { id: todolistId2, title: 'Talk to Veronika', filter: 'All' },
     // { id: todolistId3, title: 'What to buy', filter: 'All' },
   ])
-
   const [tasks, setTasks] = useState({
     [todolistId1]: [
       {id: v1(), title: "Do morning exercise", isDone: true},
@@ -33,6 +31,7 @@ export const App = () => {
       { id: v1(), title: "about Incubator in common", isDone: false },
       { id: v1(), title: "Gaidukevich destiny", isDone: false },
       { id: v1(), title: "about abbey and monastery", isDone: false },
+      { id: v1(), title: "what impression does Veronica make", isDone: false },
     ],
     // [todolistId3]:[
     //     { id: v1(), title: "Go for a walk in the park", isDone: false },
@@ -74,12 +73,13 @@ export const App = () => {
     // setTasks(tasks.filter(taskList => taskList !== todolistID))
     delete tasks[todolistID]
   }
-  console.log(`App is render ${new Date().toLocaleTimeString()}`)
-
   const addTodolist = (title: string) => {
     const newTodolsit: TodolistType = {id: v1(), title, filter: 'All'}
     setTodolists([...todolists, newTodolsit])
     setTasks({...tasks, [newTodolsit.id]:[]})
+  }
+  const updateTaskTitle = (todolistId:string, taskId: string, updatedTitle: string) => {
+    
   }
 
   return (
@@ -99,6 +99,7 @@ export const App = () => {
               changeIsDone={changeIsDone}
               filter={el.filter}
               removeTodolist={removeTodolist}
+              updateTaskTitle={updateTaskTitle}
             />
           )
         })}
