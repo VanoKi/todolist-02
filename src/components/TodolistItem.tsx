@@ -78,12 +78,13 @@ export const TodolistItem = ({
 
   console.log(`TodolistItem ${todolistId} is render ${new Date().toLocaleTimeString()}`)
   return (
-    <div>
+    <div className={'todolist'}>
       <div>
         <h2>{title}</h2>
         <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
       </div>
       <p>{todolistId}</p>
+      <p>{new Date().toLocaleTimeString()}</p>
       <div>
         <Input
           placeholder={'Enter the task'}

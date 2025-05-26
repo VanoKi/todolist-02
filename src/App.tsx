@@ -2,6 +2,7 @@ import './App.css'
 import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
+import {Input} from "./components/Input.tsx";
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -85,18 +86,29 @@ export const App = () => {
           tasksForTodolist = tasks[el.id].filter(task => task.isDone)
         }
         return (
-          <TodolistItem
-            key={el.id}
-            todolistId={el.id}
-            title={el.title}
-            tasks={tasksForTodolist}
-            removeTask={removeTask}
-            changeFilter={(filter) => changeFilter(el.id, filter)}
-            addTask={addTask}
-            changeIsDone={changeIsDone}
-            filter={el.filter}
-            removeTodolist={removeTodolist}
-          />
+          <>
+           {/* <Input
+              placeholder={'Enter the title of the task list'}
+              value={}
+              onKeyDown={}
+              onChange={}
+              className={}
+              title={}
+              onClick={}
+              onBlur={}/>*/}
+            <TodolistItem
+              key={el.id}
+              todolistId={el.id}
+              title={el.title}
+              tasks={tasksForTodolist}
+              removeTask={removeTask}
+              changeFilter={(filter) => changeFilter(el.id, filter)}
+              addTask={addTask}
+              changeIsDone={changeIsDone}
+              filter={el.filter}
+              removeTodolist={removeTodolist}
+            />
+          </>
         )
       })}
     </div>

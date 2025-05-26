@@ -64,4 +64,9 @@ input {
 .app p {
   font-size: 0.7rem;
   color: darkblue;
+  margin: 0 auto;
+}
+
+.todolist {
+  padding: 0 20px;
 }
