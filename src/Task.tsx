@@ -16,7 +16,7 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(todolistId, id, e.currentTarget.checked)}
   
-  const updateTaskTitleHandler = () => {
+  const updateTaskTitleHandler = (title: string) => {
     updatedTaskTitle(todolistId, id, title)
   }
 
