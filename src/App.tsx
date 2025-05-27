@@ -81,7 +81,6 @@ export const App = () => {
   const updatedTaskTitle = (todolistId:string, taskId: string, updatedTitle: string) => {
     setTasks({...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? {...el, title: updatedTitle} :  el)})
   }
-  // console.log(tasks[todolistId2])
 
   return (
     <div className="app">
