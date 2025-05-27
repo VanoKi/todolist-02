@@ -1,5 +1,7 @@
-import {Button} from "./Button.tsx";
+// import {Button} from "./Button.tsx";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
+// import {Button} from "@mui/material";
+import Button from '@mui/material/Button';
 
 type Props = {
   placeholder: string
@@ -42,10 +44,11 @@ export const Input = (props: Props) => {
         onBlur={() => setError(null)}
         className={error ? 'error' : ''}
       />
-      <Button
-        title={buttonTitle}
-        onClick={addTaskHandler}
-      />
+      {/*<Button*/}
+      {/*  title={buttonTitle}*/}
+      {/*  onClick={addTaskHandler}*/}
+      {/*/>*/}
+      <Button variant="contained" onClick={addTaskHandler}>+</Button>
       {error && <p className={'error-message'}>{error}</p>}
     </div>
   );
