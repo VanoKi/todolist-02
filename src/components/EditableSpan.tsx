@@ -2,8 +2,10 @@ import {ChangeEvent, useState} from "react";
 
 type Props = {
   title: string
-  onClick?: (title: string) => void
+  // updateTaskTitle: (todolistId:string, taskId: string, updatedTitle: string) => void
+  onClick: (title:string ) => void
 };
+
 export const EditableSpan = (props: Props) => {
   const {title} = props
   const [isEdit, setIsEdit] = useState(false)

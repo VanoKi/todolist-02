@@ -2,7 +2,6 @@ import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import {Button} from "./Button.tsx";
 import {Input} from "./Input.tsx";
-import {useState} from "react";
 
 type TodoListItemProps = {
   title: string
@@ -34,7 +33,6 @@ export const TodolistItem = (props: TodoListItemProps) => {
     tasksForTodolist = tasks.filter(task => task.isDone)
   }
   const mappedTasks = tasksForTodolist.map(task => {
-
     return (
       <Task
         id={task.id}

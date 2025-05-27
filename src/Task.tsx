@@ -9,16 +9,16 @@ type Props = {
   removeTask: () => void
   changeIsDone: (todolistId: string, taskId: string, isDone: boolean) => void
   todolistId: string
-  updateTaskTitle: (todolistId:string, taskId: string, updatedTitle: string) => void
+  updatedTaskTitle: (todolistId:string, taskId: string, updatedTitle: string) => void
 }
 
-export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, updateTaskTitle}: Props) => {
+export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, updatedTaskTitle}: Props) => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {changeIsDone(todolistId, id, e.currentTarget.checked)}
   
-  // const updateTaskHandler = () => {
-  //   updateTaskTitle(todolistId, )
-  // }
+  const updateTaskTitleHandler = () => {
+    updatedTaskTitle(todolistId, id, title)
+  }
 
   return (
     <li className={isDone ? 'is-done' : ''}>
@@ -27,7 +27,7 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
         checked={isDone}
         onChange={onChangeHandler}
       />
-      <EditableSpan title={title}/>
+      <EditableSpan title={title} onClick={updateTaskTitleHandler}/>
       <Button title={'X'} onClick={removeTask}/>
     </li>
   );
