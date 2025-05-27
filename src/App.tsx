@@ -13,7 +13,7 @@ export const App = () => {
   // const todolistId3 = v1()
   const [todolists, setTodolists] = useState<TodolistType[]>([
     { id: todolistId1, title: 'What to learn', filter: 'All' },
-    { id: todolistId2, title: 'Talk to Veronika', filter: 'All' },
+    { id: todolistId2, title: 'Talk to ...', filter: 'All' },
     // { id: todolistId3, title: 'What to buy', filter: 'All' },
   ])
   const [tasks, setTasks] = useState({
@@ -81,6 +81,9 @@ export const App = () => {
   const updatedTaskTitle = (todolistId:string, taskId: string, updatedTitle: string) => {
     setTasks({...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? {...el, title: updatedTitle} :  el)})
   }
+  const updatedTitle = (todolistId: string, newTitle:string) => {
+    setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: newTitle} : el))
+  }
 
   return (
     <div className="app">
@@ -100,6 +103,7 @@ export const App = () => {
               filter={el.filter}
               removeTodolist={removeTodolist}
               updatedTaskTitle={updatedTaskTitle}
+              updatedTitle={updatedTitle}
             />
           )
         })}

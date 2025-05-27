@@ -2,6 +2,7 @@ import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import {Button} from "./Button.tsx";
 import {Input} from "./Input.tsx";
+import {EditableSpan} from "./EditableSpan.tsx";
 
 type TodoListItemProps = {
   title: string
@@ -15,6 +16,7 @@ type TodoListItemProps = {
   todolistId: string
   removeTodolist: (todolistId: string) => void
   updatedTaskTitle: (todolistId: string, taskId: string, updatedTitle: string) => void
+  updatedTitle: (todolistId:string, newTitle:string) => void
 }
 export type TaskProps = {
   id: string
@@ -23,7 +25,7 @@ export type TaskProps = {
 }
 
 export const TodolistItem = (props: TodoListItemProps) => {
-  const {title, tasks, removeTask, changeFilter, addTask, changeIsDone, filter, todolistId,removeTodolist, updatedTaskTitle} = props
+  const {title, tasks, removeTask, changeFilter, addTask, changeIsDone, filter, todolistId,removeTodolist, updatedTaskTitle, updatedTitle} = props
 
   let tasksForTodolist = tasks
   if (filter === 'Active') {
@@ -50,11 +52,16 @@ export const TodolistItem = (props: TodoListItemProps) => {
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
   }
-
+  const updatedTitleHandler = (newTitle:string) => {
+    updatedTitle(todolistId, title)
+  }
+  
   return (
     <div className={'todolist'}>
       <div className={'heaadline'}>
-        <h2>{title}</h2>
+        <h2>
+          <EditableSpan title={title} onClick={updatedTitleHandler}/>
+        </h2>
         <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
       </div>
       <p>{todolistId}</p>
