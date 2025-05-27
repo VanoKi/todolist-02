@@ -1,5 +1,5 @@
 import {Button} from "./components/Button.tsx";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent} from "react";
 import {EditableSpan} from "./components/EditableSpan.tsx";
 
 type Props = {
