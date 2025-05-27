@@ -52,7 +52,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
   const changeFilterHAndler = (val: FilterValueType) => {
     changeFilter(val)
   }
-  const updatedTitleHandler = (newTitle:string) => {
+  const updatedTitleHandler = () => {
     updatedTitle(todolistId, title)
   }
   
