@@ -34,6 +34,15 @@ export const TodolistItem = (props: TodoListItemProps) => {
   if (filter === 'Completed') {
     tasksForTodolist = tasks.filter(task => task.isDone)
   }
+  const changeFilterHAndler = (val: FilterValueType) => {
+    changeFilter(val)
+  }
+  const updatedTitleHandler = () => {
+    updatedTitle(todolistId, title)
+  }
+  const updateTaskTitleHandler = (taskId:string, title: string) => {
+    updatedTaskTitle(todolistId, taskId, title)
+  }
   const mappedTasks = tasksForTodolist.map(task => {
     return (
       <Task
@@ -44,18 +53,10 @@ export const TodolistItem = (props: TodoListItemProps) => {
         removeTask={() => removeTask(todolistId, task.id)}
         changeIsDone={changeIsDone}
         todolistId={todolistId}
-        updatedTaskTitle={updatedTaskTitle}
+        updatedTaskTitleHandler={updateTaskTitleHandler}
       />
     )
   })
-
-  const changeFilterHAndler = (val: FilterValueType) => {
-    changeFilter(val)
-  }
-  const updatedTitleHandler = () => {
-    updatedTitle(todolistId, title)
-  }
-  
   return (
     <div className={'todolist'}>
       <div className={'heaadline'}>

@@ -2,7 +2,6 @@ import {ChangeEvent, useState} from "react";
 
 type Props = {
   title: string
-  // updateTaskTitle: (todolistId:string, taskId: string, updatedTitle: string) => void
   onClick: (title:string ) => void
 };
 
@@ -18,7 +17,6 @@ export const EditableSpan = (props: Props) => {
   }
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setUpdatedValue(event.currentTarget.value)
-    // setError(null)
   }
 
   return (
