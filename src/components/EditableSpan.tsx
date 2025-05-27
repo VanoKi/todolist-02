@@ -7,11 +7,12 @@ type Props = {
 };
 
 export const EditableSpan = (props: Props) => {
-  const {title} = props
+  const {title, onClick} = props
   const [isEdit, setIsEdit] = useState(false)
   const [updatedValue, setUpdatedValue] = useState(title)
   const onEditHandler = () => {
     setIsEdit(!isEdit)
+    onClick(updatedValue)
   }
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setUpdatedValue(event.currentTarget.value)
