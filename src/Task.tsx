@@ -1,6 +1,8 @@
 import {Button} from "./components/Button.tsx";
 import {ChangeEvent} from "react";
 import {EditableSpan} from "./components/EditableSpan.tsx";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 type Props = {
   id: string
@@ -24,7 +26,12 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
         onChange={onChangeHandler}
       />
       <EditableSpan title={title} onClick={(title) => updatedTaskTitleHandler(id, title)}/>
-      <Button title={'X'} onClick={removeTask}/>
+      {/*<Button title={'X'} onClick={removeTask}/>*/}
+      <IconButton aria-label="delete"
+                  onClick={removeTask}
+      >
+        <DeleteIcon />
+      </IconButton>
     </li>
   );
 };

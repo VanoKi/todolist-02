@@ -33,6 +33,8 @@ export const Input = (props: Props) => {
     }
   }
 
+  const buttonStyle = {maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}
+
   console.log(`Input is render ${new Date().toLocaleTimeString()}`)
   return (
     <div>
@@ -48,7 +50,14 @@ export const Input = (props: Props) => {
       {/*  title={buttonTitle}*/}
       {/*  onClick={addTaskHandler}*/}
       {/*/>*/}
-      <Button variant="contained" onClick={addTaskHandler}>+</Button>
+      <Button
+        variant="contained"
+        onClick={addTaskHandler}
+        // size={'small'}
+        style={buttonStyle}
+      >
+        +
+      </Button>
       {error && <p className={'error-message'}>{error}</p>}
     </div>
   );
