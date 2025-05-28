@@ -32,7 +32,7 @@ export const Input = (props: Props) => {
     }
   }
 
-  const buttonStyle = {maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}
+  const buttonStyle = {maxWidth: '38px', maxHeight: '38px', minWidth: '38px', minHeight: '38px'}
 
   console.log(`Input is render ${new Date().toLocaleTimeString()}`)
   return (
@@ -41,6 +41,7 @@ export const Input = (props: Props) => {
         id="outlined-basic"
         label={placeholder}
         variant="outlined"
+        size={'small'}
 
         // placeholder={placeholder}
         value={value}
