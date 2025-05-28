@@ -44,28 +44,18 @@ export const Input = (props: Props) => {
         variant="outlined"
         size={'small'}
 
-        // placeholder={placeholder}
         value={value}
         onKeyDown={oneKeyDawnHandler}
         onChange={onChangeHandler}
         onBlur={() => setError(null)}
         className={error ? 'error' : ''}
       />
-      {/*<input
-        placeholder={placeholder}
-        value={value}
-        onKeyDown={oneKeyDawnHandler}
-        onChange={onChangeHandler}
-        onBlur={() => setError(null)}
-        className={error ? 'error' : ''}
-      />*/}
       <Button
         variant="contained"
         onClick={addTaskHandler}
         style={buttonStyle}>
         +
       </Button>
-      {/*{error && <p className={'error-message'}>{error}</p>}*/}
     </div>
   );
 };
