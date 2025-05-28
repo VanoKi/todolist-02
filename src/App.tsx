@@ -92,11 +92,13 @@ export const App = () => {
   return (
     <div className="app">
       <MyAppBar/>
-      <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
-      <div className={'todolist-container'}>
-        {todolists.map(el => {
+      <Paper elevation={7} sx={{p: '30px'}}>
+        <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
+      </Paper>
+      {/*<div className={'todolist-container'}>*/}
+      <Grid container sx={{p: '30px'}} spacing={4}>
+      {todolists.map(el => {
           return (
-            <Grid container sx={{p: '30px'}}>
               <Paper elevation={5} sx={{p: '30px'}}>
                 <TodolistItem
                   key={el.id}
@@ -113,10 +115,10 @@ export const App = () => {
                   updatedTitle={updatedTitle}
                 />
               </Paper>
-            </Grid>
           )
         })}
-      </div>
+      {/*</div>*/}
+      </Grid>
     </div>
   )
 }
