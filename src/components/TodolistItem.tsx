@@ -3,6 +3,8 @@ import {FilterValueType} from "../App.tsx";
 import {Button} from "./Button.tsx";
 import {Input} from "./Input.tsx";
 import {EditableSpan} from "./EditableSpan.tsx";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 
 type TodoListItemProps = {
   title: string
@@ -38,7 +40,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
     changeFilter(val)
   }
   const updatedTitleHandler = () => {
-    updatedTitle(todolistId, title)
+    updatedTitle(title, todolistId)
   }
   const updateTaskTitleHandler = (taskId:string, title: string) => {
     updatedTaskTitle(todolistId, taskId, title)
@@ -63,7 +65,12 @@ export const TodolistItem = (props: TodoListItemProps) => {
         <h2>
           <EditableSpan title={title} onClick={updatedTitleHandler}/>
         </h2>
-        <Button title={'x'} onClick={() => removeTodolist(todolistId)}/>
+        {/*<Button title={'x'} onClick={() => removeTodolist(todolistId)}/>*/}
+        <IconButton aria-label="delete"
+                    onClick={removeTask}
+        >
+          <DeleteIcon />
+        </IconButton>
       </div>
       <p>{todolistId}</p>
       <p>{new Date().toLocaleTimeString()}</p>
