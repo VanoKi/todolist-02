@@ -1,6 +1,7 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
-import {Button} from "./Button.tsx";
+// import {Button} from "./Button.tsx";
+import Button from '@mui/material/Button';
 import {Input} from "./Input.tsx";
 import {EditableSpan} from "./EditableSpan.tsx";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -88,18 +89,27 @@ export const TodolistItem = (props: TodoListItemProps) => {
         </ul>
       )}
       <div>
-        <Button
-          className={filter === 'All' ? 'active-filter' : ''}
-          title={'All'}
-          onClick={() => changeFilterHAndler('All')}/>
-        <Button
-          className={filter === 'Active' ? 'active-filter' : ''}
-          title={'Active'}
-          onClick={() => changeFilterHAndler('Active')}/>
-        <Button
-          className={filter === 'Completed' ? 'active-filter' : ''}
-          title={'Completed'}
-          onClick={() => changeFilterHAndler('Completed')}/>
+        {/*<Button*/}
+        {/*  className={filter === 'All' ? 'active-filter' : ''}*/}
+        {/*  title={'All'}*/}
+        {/*  onClick={() => changeFilterHAndler('All')}/>*/}
+        {/*<Button*/}
+        {/*  className={filter === 'Active' ? 'active-filter' : ''}*/}
+        {/*  title={'Active'}*/}
+        {/*  onClick={() => changeFilterHAndler('Active')}/>*/}
+        {/*<Button*/}
+        {/*  className={filter === 'Completed' ? 'active-filter' : ''}*/}
+        {/*  title={'Completed'}*/}
+        {/*  onClick={() => changeFilterHAndler('Completed')}/>*/}
+        <Button variant={filter == 'All' ? "outlined" : "contained"} color="success" size={'small'} onClick={() => changeFilterHAndler('All')}>
+          All
+        </Button>
+        <Button variant={filter == 'Active' ? "outlined" : "contained"} color="error" size={'small'} onClick={() => changeFilterHAndler('Active')}>
+          Active
+        </Button>
+        <Button variant={filter == 'Completed' ? "outlined" : "contained"} color="secondary" size={'small'} onClick={() => changeFilterHAndler('Completed')}>
+          Completed
+        </Button>
       </div>
     </div>
   )
