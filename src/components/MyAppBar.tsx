@@ -10,7 +10,7 @@ type Props = {
 };
 export const MyAppBar = (props: Props) => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{marginBottom: '40px'}}>
       <Toolbar>
         <IconButton
           size="large"
