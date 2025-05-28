@@ -1,11 +1,11 @@
 import {Task} from "../Task.tsx";
 import {FilterValueType} from "../App.tsx";
-// import {Button} from "./Button.tsx";
 import Button from '@mui/material/Button';
 import {Input} from "./Input.tsx";
 import {EditableSpan} from "./EditableSpan.tsx";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import List from '@mui/material/List';
 
 type TodoListItemProps = {
   title: string
@@ -84,23 +84,11 @@ export const TodolistItem = (props: TodoListItemProps) => {
       {tasks.length === 0 ? (
         <p>There are no tasks</p>
       ) : (
-        <ul>
+        <List>
           {mappedTasks}
-        </ul>
+        </List>
       )}
       <div>
-        {/*<Button*/}
-        {/*  className={filter === 'All' ? 'active-filter' : ''}*/}
-        {/*  title={'All'}*/}
-        {/*  onClick={() => changeFilterHAndler('All')}/>*/}
-        {/*<Button*/}
-        {/*  className={filter === 'Active' ? 'active-filter' : ''}*/}
-        {/*  title={'Active'}*/}
-        {/*  onClick={() => changeFilterHAndler('Active')}/>*/}
-        {/*<Button*/}
-        {/*  className={filter === 'Completed' ? 'active-filter' : ''}*/}
-        {/*  title={'Completed'}*/}
-        {/*  onClick={() => changeFilterHAndler('Completed')}/>*/}
         <Button variant={filter == 'All' ? "outlined" : "contained"} color="success" size={'small'} onClick={() => changeFilterHAndler('All')}>
           All
         </Button>
