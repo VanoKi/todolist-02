@@ -3,6 +3,7 @@ import {TodolistItem} from './components/TodolistItem'
 import {useState} from "react";
 import {v1} from "uuid";
 import {Input} from "./components/Input.tsx";
+import {MyAppBar} from "./components/MyAppBar.tsx"
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -87,6 +88,7 @@ export const App = () => {
 
   return (
     <div className="app">
+      <MyAppBar/>
       <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
       <div className={'todolist-container'}>
         {todolists.map(el => {
