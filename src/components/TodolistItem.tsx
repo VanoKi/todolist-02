@@ -67,7 +67,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
         </h2>
         {/*<Button title={'x'} onClick={() => removeTodolist(todolistId)}/>*/}
         <IconButton aria-label="delete"
-                    onClick={removeTask}
+                    onClick={() => removeTodolist(todolistId)}
         >
           <DeleteIcon />
         </IconButton>
