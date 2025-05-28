@@ -6,6 +6,7 @@ import {Input} from "./components/Input.tsx";
 import {MyAppBar} from "./components/MyAppBar.tsx"
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -95,8 +96,8 @@ export const App = () => {
       <div className={'todolist-container'}>
         {todolists.map(el => {
           return (
-            <Grid item sx={{p:'30px'}}>
-              <Paper elevation={5}>
+            <Grid container sx={{p: '30px'}}>
+              <Paper elevation={5} >
                 <TodolistItem
                   key={el.id}
                   todolistId={el.id}
