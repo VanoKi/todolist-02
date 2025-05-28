@@ -1,5 +1,6 @@
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 type Props = {
   placeholder: string
@@ -36,14 +37,26 @@ export const Input = (props: Props) => {
   console.log(`Input is render ${new Date().toLocaleTimeString()}`)
   return (
     <div>
-      <input
-        placeholder={placeholder}
+      <TextField
+        id="outlined-basic"
+        label={placeholder}
+        variant="outlined"
+
+        // placeholder={placeholder}
         value={value}
         onKeyDown={oneKeyDawnHandler}
         onChange={onChangeHandler}
         onBlur={() => setError(null)}
         className={error ? 'error' : ''}
       />
+      {/*<input
+        placeholder={placeholder}
+        value={value}
+        onKeyDown={oneKeyDawnHandler}
+        onChange={onChangeHandler}
+        onBlur={() => setError(null)}
+        className={error ? 'error' : ''}
+      />*/}
       <Button
         variant="contained"
         onClick={addTaskHandler}
