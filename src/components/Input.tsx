@@ -43,7 +43,6 @@ export const Input = (props: Props) => {
         label={error ? error : placeholder}
         variant="outlined"
         size={'small'}
-        helperText={error}
 
         value={value}
         onKeyDown={oneKeyDawnHandler}
