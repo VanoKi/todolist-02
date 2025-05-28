@@ -4,6 +4,8 @@ import {useState} from "react";
 import {v1} from "uuid";
 import {Input} from "./components/Input.tsx";
 import {MyAppBar} from "./components/MyAppBar.tsx"
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -93,20 +95,24 @@ export const App = () => {
       <div className={'todolist-container'}>
         {todolists.map(el => {
           return (
-            <TodolistItem
-              key={el.id}
-              todolistId={el.id}
-              title={el.title}
-              tasks={tasks[el.id]}
-              removeTask={removeTask}
-              changeFilter={(filter) => changeFilter(el.id, filter)}
-              addTask={addTask}
-              changeIsDone={changeIsDone}
-              filter={el.filter}
-              removeTodolist={removeTodolist}
-              updatedTaskTitle={updatedTaskTitle}
-              updatedTitle={updatedTitle}
-            />
+            <Grid item sx={{p:'30px'}}>
+              <Paper elevation={5}>
+                <TodolistItem
+                  key={el.id}
+                  todolistId={el.id}
+                  title={el.title}
+                  tasks={tasks[el.id]}
+                  removeTask={removeTask}
+                  changeFilter={(filter) => changeFilter(el.id, filter)}
+                  addTask={addTask}
+                  changeIsDone={changeIsDone}
+                  filter={el.filter}
+                  removeTodolist={removeTodolist}
+                  updatedTaskTitle={updatedTaskTitle}
+                  updatedTitle={updatedTitle}
+                />
+              </Paper>
+            </Grid>
           )
         })}
       </div>
