@@ -97,7 +97,7 @@ export const App = () => {
         {todolists.map(el => {
           return (
             <Grid container sx={{p: '30px'}}>
-              <Paper elevation={5} >
+              <Paper elevation={5} sx={{p: '30px'}}>
                 <TodolistItem
                   key={el.id}
                   todolistId={el.id}
