@@ -38,8 +38,9 @@ export const Input = (props: Props) => {
   return (
     <div>
       <TextField
+        error={!!error}
         id="outlined-basic"
-        label={placeholder}
+        label={error ? error : placeholder}
         variant="outlined"
         size={'small'}
 
@@ -64,7 +65,7 @@ export const Input = (props: Props) => {
         style={buttonStyle}>
         +
       </Button>
-      {error && <p className={'error-message'}>{error}</p>}
+      {/*{error && <p className={'error-message'}>{error}</p>}*/}
     </div>
   );
 };
