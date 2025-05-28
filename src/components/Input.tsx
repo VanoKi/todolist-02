@@ -1,6 +1,4 @@
-// import {Button} from "./Button.tsx";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
-// import {Button} from "@mui/material";
 import Button from '@mui/material/Button';
 
 type Props = {
@@ -9,7 +7,7 @@ type Props = {
   onSubmit: (value: string) => void
 };
 export const Input = (props: Props) => {
-  const {placeholder, buttonTitle, onSubmit} = props
+  const {placeholder, onSubmit} = props
 
   const [error, setError] = useState<string | null>(null)
   const [value, setValue] = useState('')
@@ -46,16 +44,10 @@ export const Input = (props: Props) => {
         onBlur={() => setError(null)}
         className={error ? 'error' : ''}
       />
-      {/*<Button*/}
-      {/*  title={buttonTitle}*/}
-      {/*  onClick={addTaskHandler}*/}
-      {/*/>*/}
       <Button
         variant="contained"
         onClick={addTaskHandler}
-        // size={'small'}
-        style={buttonStyle}
-      >
+        style={buttonStyle}>
         +
       </Button>
       {error && <p className={'error-message'}>{error}</p>}
