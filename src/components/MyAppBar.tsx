@@ -6,7 +6,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {MenuBtn} from "./MenuBtn.tsx";
 import {Switch, useTheme} from "@mui/material";
 
-export const MyAppBar = () => {
+type Props = {
+  onSwitch: () => void
+}
+
+export const MyAppBar = ({onSwitch}:Props) => {
   const theme = useTheme()
   return (
     <AppBar position="static" style={{marginBottom: '40px'}}>
@@ -26,7 +30,7 @@ export const MyAppBar = () => {
         <MenuBtn color="inherit" background={theme.palette.primary.light}>Login</MenuBtn>
         <MenuBtn color="inherit">LogOut</MenuBtn>
         <MenuBtn color="inherit">FAQ</MenuBtn>
-        <Switch color={'default'}/>
+        <Switch color={'default'} onChange={onSwitch}/>
       </Toolbar>
     </AppBar>
   );

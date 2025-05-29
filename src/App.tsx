@@ -6,12 +6,11 @@ import {Input} from "./components/Input.tsx";
 import {MyAppBar} from "./components/MyAppBar.tsx"
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-// import { createTheme } from '@mui/material/styles';
-// import { ThemeProvider } from '@emotion/react/macro';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
+type ThemeMode = 'dark' | 'light'
 
 export const App = () => {
   const todolistId1 = v1()
@@ -91,19 +90,24 @@ export const App = () => {
     setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: newTitle} : el))
   }
 
+  const [themeMode, setThemeMode] = useState<ThemeMode>('light')
   const theme = createTheme({
     palette: {
+      mode: themeMode === 'light' ? 'light' : 'dark',
       primary: {
         main: 'rgba(98,166,127,0.98)'
       }
     }
   });
 
+  const changeModeHandler = () => {
+    setThemeMode(themeMode === 'light' ? 'dark' : 'light')
+  }
 
   return (
     <div className="app">
       <ThemeProvider theme={theme}>
-        <MyAppBar/>
+        <MyAppBar onSwitch={changeModeHandler}/>
         <Paper elevation={7} sx={{p: '30px'}}>
           <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
         </Paper>
