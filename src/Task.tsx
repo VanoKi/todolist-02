@@ -22,12 +22,17 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
   }
 
   return (
-    <ListItem className={isDone ? 'is-done' : ''}>
-      <Checkbox
-        size={'small'}
-        checked={isDone}
-        onChange={onChangeHandler}/>
-      <EditableSpan title={title} onClick={(title) => updatedTaskTitleHandler(id, title)}/>
+    <ListItem
+      className={isDone ? 'is-done' : ''}
+      sx={{p:0, justifyContent: 'space-between'}}
+    >
+      <div>
+        <Checkbox
+          size={'small'}
+          checked={isDone}
+          onChange={onChangeHandler}/>
+        <EditableSpan title={title} onClick={(title) => updatedTaskTitleHandler(id, title)}/>
+      </div>
       <IconButton aria-label="delete"
                   onClick={removeTask}>
         <DeleteIcon fontSize="small"/>
