@@ -7,6 +7,7 @@ import {MyAppBar} from "./components/MyAppBar.tsx"
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {CssBaseline} from "@mui/material";
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -133,6 +134,7 @@ export const App = () => {
             )
           })}
         </Grid>
+        <CssBaseline/>
       </ThemeProvider>
     </div>
   )
