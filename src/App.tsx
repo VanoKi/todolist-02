@@ -94,7 +94,7 @@ export const App = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#2aa408'
+        main: 'rgba(98,166,127,0.98)'
       }
     }
   });

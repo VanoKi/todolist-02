@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {MenuBtn} from "./MenuBtn.tsx";
-import {useTheme} from "@mui/material";
+import {Switch, useTheme} from "@mui/material";
 
 export const MyAppBar = () => {
   const theme = useTheme()
@@ -26,6 +26,7 @@ export const MyAppBar = () => {
         <MenuBtn color="inherit" background={theme.palette.primary.light}>Login</MenuBtn>
         <MenuBtn color="inherit">LogOut</MenuBtn>
         <MenuBtn color="inherit">FAQ</MenuBtn>
+        <Switch color={'default'}/>
       </Toolbar>
     </AppBar>
   );
