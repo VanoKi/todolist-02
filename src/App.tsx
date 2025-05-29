@@ -6,6 +6,9 @@ import {Input} from "./components/Input.tsx";
 import {MyAppBar} from "./components/MyAppBar.tsx"
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+// import { createTheme } from '@mui/material/styles';
+// import { ThemeProvider } from '@emotion/react/macro';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -88,16 +91,19 @@ export const App = () => {
     setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: newTitle} : el))
   }
 
+  const theme = createTheme({});
+
+
   return (
     <div className="app">
-      <MyAppBar/>
-      <Paper elevation={7} sx={{p: '30px'}}>
-        <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
-      </Paper>
-      {/*<div className={'todolist-container'}>*/}
-      <Grid container sx={{p: '30px'}} spacing={4}>
-      {todolists.map(el => {
-          return (
+      <ThemeProvider theme={theme}>
+        <MyAppBar/>
+        <Paper elevation={7} sx={{p: '30px'}}>
+          <Input placeholder={'Enter title of the todolist'} buttonTitle={'+'} onSubmit={addTodolist}/>
+        </Paper>
+        <Grid container sx={{p: '30px'}} spacing={4}>
+          {todolists.map(el => {
+            return (
               <Paper elevation={5} sx={{p: '30px'}}>
                 <TodolistItem
                   key={el.id}
@@ -114,10 +120,10 @@ export const App = () => {
                   updatedTitle={updatedTitle}
                 />
               </Paper>
-          )
-        })}
-      {/*</div>*/}
-      </Grid>
+            )
+          })}
+        </Grid>
+      </ThemeProvider>
     </div>
   )
 }
