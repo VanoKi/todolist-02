@@ -21,7 +21,7 @@ export const MyAppBar = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           News
         </Typography>
-        <MenuBtn color="inherit">Login</MenuBtn>
+        <MenuBtn color="inherit" background={'yellowgreen'}>Login</MenuBtn>
         <MenuBtn color="inherit">LogOut</MenuBtn>
         <MenuBtn color="inherit">FAQ</MenuBtn>
       </Toolbar>
