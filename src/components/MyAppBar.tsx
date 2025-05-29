@@ -22,6 +22,8 @@ export const MyAppBar = () => {
           News
         </Typography>
         <Button color="inherit">Login</Button>
+        <Button color="inherit">LogOut</Button>
+        <Button color="inherit">FAQ</Button>
       </Toolbar>
     </AppBar>
   );
