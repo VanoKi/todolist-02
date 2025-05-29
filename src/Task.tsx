@@ -23,8 +23,9 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
 
   return (
     <ListItem
-      className={isDone ? 'is-done' : ''}
-      sx={{p:0, justifyContent: 'space-between'}}
+      // className={isDone ? 'is-done' : ''}
+      sx={{p:0, justifyContent: 'space-between',
+        opacity: isDone ? 0.5 : 1}}
     >
       <div>
         <Checkbox

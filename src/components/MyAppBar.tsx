@@ -5,10 +5,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-type Props = {
-
-};
-export const MyAppBar = (props: Props) => {
+export const MyAppBar = () => {
   return (
     <AppBar position="static" style={{marginBottom: '40px'}}>
       <Toolbar>
