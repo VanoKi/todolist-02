@@ -89,7 +89,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
           {mappedTasks}
         </List>
       )}
-      <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+      <Box sx={}>
         <Button variant={filter == 'All' ? "outlined" : "contained"} color="success" size={'small'} onClick={() => changeFilterHAndler('All')}>
           All
         </Button>
