@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
+import {getListItemSx} from "./Todolist.styles.ts";
 
 type Props = {
   id: string
@@ -23,9 +24,7 @@ export const Task = ({id, title, isDone, removeTask, changeIsDone, todolistId, u
 
   return (
     <ListItem
-      // className={isDone ? 'is-done' : ''}
-      sx={{p:0, justifyContent: 'space-between',
-        opacity: isDone ? 0.5 : 1}}
+      sx={getListItemSx(isDone)}
     >
       <div>
         <Checkbox

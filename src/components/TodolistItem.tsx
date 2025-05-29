@@ -7,6 +7,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import List from '@mui/material/List';
 import {Box} from "@mui/material";
+import {filterButtonsConteinerSx} from "../Todolist.styles.ts";
 
 type TodoListItemProps = {
   title: string
@@ -89,7 +90,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
           {mappedTasks}
         </List>
       )}
-      <Box sx={}>
+      <Box sx={filterButtonsConteinerSx}>
         <Button variant={filter == 'All' ? "outlined" : "contained"} color="success" size={'small'} onClick={() => changeFilterHAndler('All')}>
           All
         </Button>
