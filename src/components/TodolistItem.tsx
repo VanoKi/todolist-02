@@ -6,6 +6,7 @@ import {EditableSpan} from "./EditableSpan.tsx";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import List from '@mui/material/List';
+import {Box} from "@mui/material";
 
 type TodoListItemProps = {
   title: string
@@ -88,7 +89,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
           {mappedTasks}
         </List>
       )}
-      <div>
+      <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Button variant={filter == 'All' ? "outlined" : "contained"} color="success" size={'small'} onClick={() => changeFilterHAndler('All')}>
           All
         </Button>
@@ -98,7 +99,7 @@ export const TodolistItem = (props: TodoListItemProps) => {
         <Button variant={filter == 'Completed' ? "outlined" : "contained"} color="secondary" size={'small'} onClick={() => changeFilterHAndler('Completed')}>
           Completed
         </Button>
-      </div>
+      </Box>
     </div>
   )
 }
