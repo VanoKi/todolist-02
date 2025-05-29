@@ -91,7 +91,13 @@ export const App = () => {
     setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: newTitle} : el))
   }
 
-  const theme = createTheme({});
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#2aa408'
+      }
+    }
+  });
 
 
   return (
