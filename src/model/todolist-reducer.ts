@@ -10,8 +10,16 @@ export const todolistReducer = (state:TodolistType[] = initialState, action:Aсt
   }
 }
 
-type Aсtions = {
-  type: string
-  payload: any
+// type Aсtions = {
+//   type: string
+//   payload: any
+// }
+
+export type DeleteTodolistAction = {
+  type: 'delete_todolist',
+  payload: {
+    id: string
+  }
 }
 
+type Actions = DeleteTodolistAction
