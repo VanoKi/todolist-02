@@ -16,11 +16,9 @@ type ThemeMode = 'dark' | 'light'
 export const App = () => {
   const todolistId1 = v1()
   const todolistId2 = v1()
-  // const todolistId3 = v1()
   const [todolists, setTodolists] = useState<TodolistType[]>([
     { id: todolistId1, title: 'What to learn', filter: 'All' },
     { id: todolistId2, title: 'Talk to ...', filter: 'All' },
-    // { id: todolistId3, title: 'What to buy', filter: 'All' },
   ])
   const [tasks, setTasks] = useState({
     [todolistId1]: [
@@ -39,30 +37,12 @@ export const App = () => {
       { id: v1(), title: "about abbey and monastery", isDone: false },
       { id: v1(), title: "what impression does Veronica make", isDone: false },
     ],
-    // [todolistId3]:[
-    //     { id: v1(), title: "Go for a walk in the park", isDone: false },
-    //     { id: v1(), title: "Watch a movie", isDone: true },
-    //     { id: v1(), title: "Call parents", isDone: true },
-    //     { id: v1(), title: "Clean the kitchen", isDone: false },
-    //     { id: v1(), title: "Play a board game", isDone: false },
-    // ]
   })
 
   const changeFilter = (todolistId: string, newFilter: FilterValueType) => {
     setTodolists(todolists.map(el => el.id === todolistId ? {...el, filter: newFilter} : el))
   }
-  // const filter = () => {
-  //   switch (val) {
-  //     case 'Completed': {
-  //       return tasks.filter(task => task.isDone)
-  //     }
-  //     case 'Active': {
-  //       return tasks.filter(task => !task.isDone)
-  //     }
-  //     default:
-  //       return tasks
-  //   }
-  // }
+
   const removeTask = (todolistID: string, taskId: string) => {
     setTasks({...tasks, [todolistID] : tasks[todolistID].filter(el => el.id !== taskId)})
   }
@@ -76,7 +56,6 @@ export const App = () => {
   }
   const removeTodolist = (todolistID: string) => {
     setTodolists(todolists.filter(todoList => todoList.id !== todolistID))
-    // setTasks(tasks.filter(taskList => taskList !== todolistID))
     delete tasks[todolistID]
   }
   const addTodolist = (title: string) => {
