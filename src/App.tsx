@@ -17,6 +17,7 @@ import {
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
+export type TaskState = {id: string, title: string, isDone: boolean}
 type ThemeMode = 'dark' | 'light'
 
 export const App = () => {
