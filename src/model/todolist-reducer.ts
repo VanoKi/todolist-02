@@ -4,3 +4,9 @@ const initialState:TodolistType[] = []
 export const todolistReducer = (state, action) => {
 
 }
+
+type Avtions = {
+  type: string
+  payload: any
+}
+
