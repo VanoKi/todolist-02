@@ -1,10 +1,10 @@
 import {ChangeEvent} from "react";
-import {EditableSpan} from "./components/EditableSpan.tsx";
+import {EditableSpan} from "./EditableSpan.tsx";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
-import {getListItemSx} from "./Todolist.styles.ts";
+import {getListItemSx} from "../Todolist.styles.ts";
 
 type Props = {
   id: string

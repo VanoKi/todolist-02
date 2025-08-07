@@ -1,4 +1,4 @@
-import {Task} from "../Task.tsx";
+import {Task} from "./Task.tsx";
 import {FilterValueType} from "../App.tsx";
 import Button from '@mui/material/Button';
 import {Input} from "./Input.tsx";
