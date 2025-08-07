@@ -20,8 +20,6 @@ export type TodolistType = {id: string, title: string, filter: FilterValueType}
 type ThemeMode = 'dark' | 'light'
 
 export const App = () => {
-  const todolistId1 = v1()
-  const todolistId2 = v1()
   const [todolists, dispatchToTodolists] = useReducer(todolistReducer, [])
   const [tasks, setTasks] = useState({})
 
