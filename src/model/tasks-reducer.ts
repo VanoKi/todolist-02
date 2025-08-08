@@ -23,12 +23,19 @@ export const tasksReducer = (state: TasksState = initialState, action: Actions):
       const newTask = {id: v1(), title: newTitle, isDone: false}
       return {...state, [todolistId]:[newTask, ...state[todolistId]]}
     }
+    case 'change_task_status': {
+      const {todolistId, taskId, isDone} = action.payload
+      return {...state, [todolistId]:state[todolistId].map(task => task.id === taskId ? {...task, isDone} : task)}
+    }
     default:
       return state
   }
 }
 export const deleteTaskAC = ({todolistId, taskId}:{todolistId:string, taskId:string}) => {return {type: 'remove_task', payload: {todolistId, taskId}}}
 export const createTaskAC = ({todolistId, newTitle}:{todolistId:string, newTitle:string}) => {return {type: 'create_task', payload: {todolistId, newTitle}}}
+export const changeTaskStatusAC = ({todolistId, taskId, isDone}:{todolistId: string, taskId: string, isDone: boolean}) => {return {type: 'change_task_status', payload: {todolistId, taskId, isDone} }}
+
 export type DeleteTaskAC = ReturnType<typeof deleteTaskAC>
 export type CreateTaskAC = ReturnType<typeof createTaskAC>
-type Actions = CreateTodolistAction | DeleteTodolistAction | DeleteTaskAC | CreateTaskAC
+export type ChangeTaskStatusAC = ReturnType<typeof changeTaskStatusAC>
+type Actions = CreateTodolistAction | DeleteTodolistAction | DeleteTaskAC | CreateTaskAC | ChangeTaskStatusAC
