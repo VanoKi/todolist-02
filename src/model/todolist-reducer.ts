@@ -8,7 +8,7 @@ export const todolistReducer = (state:TodolistType[] = initialState, action:Acti
       return state.filter(tl => tl.id !== action.payload.id)
     }
     case 'create_todolist': {
-      const newTodolist:TodolistType = {id: v4(), title: action.payload.title, filter: 'All'}
+      const newTodolist:TodolistType = {id: action.payload.id, title: action.payload.title, filter: 'All'}
       return [newTodolist, ...state]
     }
     case 'change_todolist_title': {
@@ -21,21 +21,21 @@ export const todolistReducer = (state:TodolistType[] = initialState, action:Acti
   }
 }
 
-export const deleteTodolistAC = (id:string):DeleteTodolistAction => {
+export const deleteTodolistAC = (id:string) => {
   return {type: "delete_todolist", payload: {id} as const}
 }
-export const createTodolistAC = (title:string):CreateTodolistAction => {
-  return {type: "create_todolist", payload: {title} as const}
+export const createTodolistAC = (title:string) => {
+  return {type: "create_todolist", payload: {title, id: v4()}} as const
 }
 export const changeTodolistTitleAC = ({ id, title }: { id: string; title: string }) => {
-  return {type: 'change_todolist_title', payload: {id, title} as const}
+  return {type: 'change_todolist_title', payload: {id, title}} as const
 }
 export const changeTodolistFilterAC = ({id, filter}:{id:string, filter:FilterValueType}) => {
-  return {type: 'change_todolist_filter', payload: {id, filter} as const}
+  return {type: 'change_todolist_filter', payload: {id, filter}} as const
 }
 export type DeleteTodolistAction = ReturnType<typeof deleteTodolistAC>
 export type CreateTodolistAction = ReturnType<typeof createTodolistAC>
-export type ChangeTodolisTitletAction = ReturnType<typeof changeTodolistTitleAC>
+export type ChangeTodolistTitleAction = ReturnType<typeof changeTodolistTitleAC>
 export type ChangeTodolistFilterAction = ReturnType<typeof changeTodolistFilterAC>
 
-type Actions = DeleteTodolistAction | CreateTodolistAction | ChangeTodolisTitletAction | ChangeTodolistFilterAction
+type Actions = DeleteTodolistAction | CreateTodolistAction | ChangeTodolistTitleAction | ChangeTodolistFilterAction
