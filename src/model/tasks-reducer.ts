@@ -5,6 +5,7 @@ import {v1} from "uuid";
 const initialState: TasksState = {}
 
 export const tasksReducer = (state: TasksState = initialState, action: Actions): TasksState => {
+  console.log('task reducder recided action', action)
   switch (action.type) {
     case 'create_todolist': {
       return {...state, [action.payload.id]:[]}
