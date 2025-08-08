@@ -82,12 +82,11 @@ export const App = () => {
         <Grid container sx={{p: '30px'}} spacing={4}>
           {todolists.map(el => {
             return (
-              <Paper elevation={5} sx={{p: '30px'}}>
+              <Paper key={el.id} elevation={5} sx={{p: '30px'}}>
                 <TodolistItem
-                  key={el.id}
                   todolistId={el.id}
                   title={el.title}
-                  tasks={tasks[el.id]}
+                  tasks={tasks[el.id] ?? []}
                   removeTask={removeTask}
                   changeFilter={(filter) => changeFilter(el.id, filter)}
                   addTask={addTask}
