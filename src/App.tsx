@@ -18,7 +18,8 @@ import {tasksReducer} from "./model/tasks-reducer.ts";
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
-export type TasksState = {id: string, title: string, isDone: boolean}
+export type TaskType = {id: string, title: string, isDone: boolean}
+export type TasksState = {[key: string] : TaskType[]}
 type ThemeMode = 'dark' | 'light'
 
 export const App = () => {
