@@ -1,7 +1,7 @@
 import type {TasksState} from '../App'
 import {CreateTodolistAction, DeleteTodolistAction} from "./todolist-reducer.ts";
 
-const initialState: TasksState = {}
+const initialState: TasksState[] = []
 
 export const tasksReducer = (state: TasksState = initialState, action: Actions): TasksState => {
   switch (action.type) {

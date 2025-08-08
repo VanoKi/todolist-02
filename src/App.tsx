@@ -11,9 +11,10 @@ import {CssBaseline} from "@mui/material";
 import {
   changeTodolistFilterAC,
   changeTodolistTitleAC,
-  createTodolistAC,
+  createTodolistAC, deleteTodolistAC,
   todolistReducer
 } from "./model/todolist-reducer.ts";
+import {tasksReducer} from "./model/tasks-reducer.ts";
 
 export type FilterValueType = 'All' | 'Active' | 'Completed'
 export type TodolistType = {id: string, title: string, filter: FilterValueType}
@@ -22,7 +23,7 @@ type ThemeMode = 'dark' | 'light'
 
 export const App = () => {
   const [todolists, dispatchToTodolists] = useReducer(todolistReducer, [])
-  const [tasks, setTasks] = useState({})
+  const [tasks, dispatchTasks] = useReducer(tasksReducer, {})
 
   const changeFilter = (todolistId: string, newFilter: FilterValueType) => {
     dispatchToTodolists(changeTodolistFilterAC({id: todolistId, filter: newFilter}))
@@ -40,7 +41,7 @@ export const App = () => {
     setTasks({...tasks, [todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, isDone} : el)})
   }
   const removeTodolist = (todolistId: string) => {
-    dispatchToTodolists(todolistId)
+    dispatchToTodolists(deleteTodolistAC(todolistId))
   }
   const addTodolist = (title: string) => {
     dispatchToTodolists(createTodolistAC(title))

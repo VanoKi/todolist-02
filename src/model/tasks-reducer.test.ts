@@ -60,7 +60,6 @@ test('correct task should be deleted', () => {
     ],
   })
 })
-
 test('correct task should be created at correct array', () => {
   const endState = tasksReducer(
     startState,
@@ -75,4 +74,16 @@ test('correct task should be created at correct array', () => {
   expect(endState.todolistId2[0].id).toBeDefined()
   expect(endState.todolistId2[0].title).toBe(XXX)
   expect(endState.todolistId2[0].isDone).toBe(XXX)
+})
+test('correct task should change its status', () => {
+  const endState = tasksReducer(
+    startState,
+    changeTaskStatusAC({ todolistId: 'todolistId2', taskId: '2', isDone: false })
+  )
+
+  expect().toBe()
+  expect().toBe()
+})
+test('correct task should change its title', () => {
+  /*...*/
 })
