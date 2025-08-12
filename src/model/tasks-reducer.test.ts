@@ -65,15 +65,15 @@ test('correct task should be created at correct array', () => {
     startState,
     createTaskAC({
       todolistId: 'todolistId2',
-      title: 'juice',
+      newTitle: 'juice',
     })
   )
 
-  expect(endState.todolistId1.length).toBe(XXX)
-  expect(endState.todolistId2.length).toBe(XXX)
+  expect(endState.todolistId1.length).toBe(3)
+  expect(endState.todolistId2.length).toBe(4)
   expect(endState.todolistId2[0].id).toBeDefined()
-  expect(endState.todolistId2[0].title).toBe(XXX)
-  expect(endState.todolistId2[0].isDone).toBe(XXX)
+  expect(endState.todolistId2[0].title).toBe('juice')
+  expect(endState.todolistId2[0].isDone).toBe(false)
 })
 test('correct task should change its status', () => {
   const endState = tasksReducer(
